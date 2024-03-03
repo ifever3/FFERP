@@ -1,0 +1,199 @@
+﻿<Page x:Class="FFERP.home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FFERP"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="610" d:DesignWidth="1050"
+      Title="home">
+
+    <Grid Background="WhiteSmoke">
+        <materialDesign:Card Margin="34,20,734,345" UniformCornerRadius="20" Padding="10">
+            <StackPanel>
+                <TextBlock Text="支出记录" Margin="10 20" FontWeight="SemiBold" />
+                <Grid Height="150">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="166.227" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Clicks" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
+                    <TextBlock Text="Likes" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
+                    <TextBlock Text="Followers" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
+                    <TextBlock Text="Impressions" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
+                    <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Text="10K" FontWeight="SemiBold" Margin="5 0" />
+                        <ProgressBar Margin="5 0" Width="100" Height="8" Foreground="#FFFFFF13" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
+                        <TextBlock Text="12K" FontWeight="SemiBold" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Text="10K" FontWeight="SemiBold" Margin="5 0" />
+                        <ProgressBar Margin="5 0" Width="100" Height="8" Foreground="#FFFFFF13" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
+                        <TextBlock Text="12K" FontWeight="SemiBold" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Text="10K" FontWeight="SemiBold" Margin="5 0" />
+                        <ProgressBar Margin="5 0" Width="100" Height="8" Foreground="SeaGreen" Background="#FFE8E8E8" BorderBrush="SeaGreen" Value="78" />
+                        <TextBlock Text="12K" FontWeight="SemiBold" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Text="10K" FontWeight="SemiBold" Margin="5 0" />
+                        <ProgressBar Margin="5 0" Width="100" Height="8" Foreground="SeaGreen" Background="#FFE8E8E8" BorderBrush="SeaGreen" Value="78" />
+                        <TextBlock Text="12K" FontWeight="SemiBold" />
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </materialDesign:Card>
+
+        <Border Background="White" Margin="341,41,293,345" CornerRadius="3" Height="214">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="361*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.7*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Panel.ZIndex="1" Margin="20,-20,20,79" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" Opacity=".2" ShadowDepth="1"/>
+                    </Grid.Effect>
+                    <Grid.Resources>
+                        <Style TargetType="lvc:ColumnSeries">
+                            <Setter Property="StrokeThickness" Value="0"></Setter>
+                            <Setter Property="Stroke" Value="White"></Setter>
+                            <Setter Property="Fill" Value="White"></Setter>
+                            <Setter Property="MaxColumnWidth" Value="5"></Setter>
+                        </Style>
+                        <Style TargetType="lvc:Axis">
+                            <Setter Property="FontSize" Value="12"></Setter>
+                            <Setter Property="Foreground" Value="#64FFFFFF"></Setter>
+                            <Style.Triggers>
+                                <Trigger Property="AxisOrientation" Value="Y">
+                                    <Setter Property="IsMerged" Value="True"></Setter>
+                                    <Setter Property="MaxValue" Value="10"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                        <Style TargetType="lvc:Separator">
+                            <Setter Property="StrokeThickness" Value="1"></Setter>
+                            <Setter Property="Stroke" Value="#4BFFFFFF"></Setter>
+                            <Style.Triggers>
+                                <Trigger Property="AxisOrientation" Value="X">
+                                    <Setter Property="IsEnabled" Value="False"></Setter>
+                                    <Setter Property="Step" Value="1"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height=".50*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Border  Grid.Row="0" Grid.RowSpan="4" CornerRadius="5" Background="White" />
+                    <Border Grid.Row="0" Grid.RowSpan="3" Background="#FFFDBD0E" ></Border>
+
+                    <lvc:CartesianChart  Grid.Row="2" Margin="10, 0, 10, 20"  Hoverable="False" DataTooltip="{x:Null}">
+                        <lvc:CartesianChart.Series>
+                            <lvc:LineSeries Stroke="White" Values="5,9,8,6,1,5,7,3,6,3"/>
+                        </lvc:CartesianChart.Series>
+                    </lvc:CartesianChart>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="5,0,0,0" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.2*"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock  Text="Office" VerticalAlignment="Bottom" Foreground="Black"  FontWeight="Light"  FontSize="16"/>
+                    <Border Grid.Row="1" BorderThickness="0 0 0 1" Margin="0 0 20 0" VerticalAlignment="Bottom" BorderBrush="#E3E3E3"/>
+                    <TextBlock Grid.Row="1" Text="Get More Data" Foreground="#848484" FontWeight="Light" VerticalAlignment="Center" FontSize="12"/>
+                    <TextBlock Grid.Row="2" Text="campaign sent 2 days ago" Foreground="#848484"  FontWeight="Light" VerticalAlignment="Center" FontSize="12"/>
+                </Grid>
+            </Grid>
+        </Border>
+
+       
+
+        <Calendar Name="cal" HorizontalAlignment="Left" Margin="790,20,0,0" VerticalAlignment="Top" Height="323" Width="234"  Visibility="Visible" DisplayMode="Month"/>
+
+        <materialDesign:Card Margin="790,359,26,17" UniformCornerRadius="20" Padding="10">
+        </materialDesign:Card>
+
+        <materialDesign:Card Margin="34,285,557,17" UniformCornerRadius="20">
+            <StackPanel>
+                <Grid>
+                    <TextBlock Margin="20" HorizontalAlignment="Left"  FontWeight="SemiBold" Text="Instagram Subscribers" FontSize="18"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock FontWeight="ExtraBold" FontSize="14" Text="&#xF06C;" FontFamily="wingdings" VerticalAlignment="Center" Foreground="#42A5F4" />
+                        <TextBlock Text="Gained" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="14" Margin="5 0 10 0" />
+                        <TextBlock FontWeight="ExtraBold" FontSize="14" Text="&#xF06C;" FontFamily="wingdings" VerticalAlignment="Center" Foreground="#F55F54" />
+                        <TextBlock Text="Lost" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="14" Margin="5 0 20 0" />
+                    </StackPanel>
+                </Grid>
+                <lvc:CartesianChart Series="{Binding SeriesCollection}" Foreground="Black" Margin="10 0" Height="200">
+                    <lvc:CartesianChart.AxisX>
+                        <lvc:Axis Labels="{Binding Labels}" Separator="{x:Static lvc:DefaultAxes.CleanSeparator}" />
+                    </lvc:CartesianChart.AxisX>
+                    <lvc:CartesianChart.AxisY>
+                        <lvc:Axis LabelFormatter="{Binding Formatter}" />
+                    </lvc:CartesianChart.AxisY>
+                </lvc:CartesianChart>
+            </StackPanel>
+        </materialDesign:Card>
+
+        <Grid Margin="508,285,278,104">
+            <Border Background="#FFACE659" Margin="50 20 50 20">
+                <Border.Effect>
+                    <DropShadowEffect Color="#FFACE659" ShadowDepth="30" BlurRadius="50" Opacity="0.8" Direction="270"/>
+                </Border.Effect>
+            </Border>
+
+            <Border CornerRadius="10" Margin="10 0 10 0" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="#FFACE659">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Border BorderThickness="1" Height="1" BorderBrush="#EBEBEB" VerticalAlignment="Center" Grid.RowSpan="2"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="4*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Background="#ffffff" Opacity="0.2" Width="35" Height="35" CornerRadius="35"/>
+                        <TextBlock Text="&#xe69d;" FontFamily="Fonts/#iconfont" 
+                                                   FontSize="22" Foreground="White"
+                                                   VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                        <TextBlock Text="Total Messages" Grid.Column="1" Foreground="White" VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                    <StackPanel Grid.Row="1" VerticalAlignment="Center" Margin="15 0 0 0">
+                        <TextBlock Text="Decemeber 05th's 16" FontSize="22" Foreground="White"/>
+                        <TextBlock Text="99+" Foreground="White"/>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+        </Grid>
+
+       
+    </Grid>
+</Page>
