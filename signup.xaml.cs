@@ -35,14 +35,14 @@ namespace FFERP
         {
             if (fname.Text.Trim().Length == 0)
             {
-                MessageBox.Show("用户昵称不能为空");
+                MessageBox.Show("家庭名不能为空");
                fname.Focus();
                 return false;
             }
-            if (userid.Text.Trim().Length == 0)
+            if (username.Text.Trim().Length == 0)
             {
-                MessageBox.Show("用户账号不能为空");
-                userid.Focus();
+                MessageBox.Show("用户名不能为空");
+                username.Focus();
                 return false;
             }
             if (passwordbox1.Password.Trim().Length == 0)
@@ -69,24 +69,22 @@ namespace FFERP
                         sqlconn = new SqlConnection("server=LAPTOP-LJQH2OK2;uid=sa;pwd=123;database=FF ERP");
                         sqlconn.Open();
 
-                        string query = "SELECT COUNT(*) FROM account WHERE 账号 = @input";
+                        string query = "SELECT COUNT(*) FROM account WHERE 用户名 = @input";
                         SqlCommand command = new SqlCommand(query, sqlconn);
-                        command.Parameters.AddWithValue("@input", userid.Text.Trim());
-                        int count = (int)command.ExecuteScalar(); // 执行查询并返回结果集中的第一行的第一列
-
-                        
+                        command.Parameters.AddWithValue("@input", username.Text.Trim());
+                        int count = (int)command.ExecuteScalar(); // 执行查询并返回结果集中的第一行的第一列                      
                         if (count > 0)
                         {
-                            MessageBox.Show("id已存在");
+                            MessageBox.Show("用户名已存在");
                         }
                       
                         else
                         {
-                            string sql = string.Format("insert into account values ('{0}','{1}','{2}','{3}');",
-                           "admin", userid.Text.Trim(), passwordbox1.Password.Trim(), fname.Text.Trim());
+                            string sql = string.Format("insert into account values ('{0}','{1}','{2}');",
+                           username.Text.Trim(), passwordbox1.Password.Trim(), fname.Text.Trim());
                             SqlCommand cmd = new SqlCommand(sql, sqlconn);
                             string sql1 = string.Format("insert into [user] values ('{0}','{1}','{2}','{3}','{4}','{5}');",
-                             "admin",fname.Text.Trim(), null, null, null, @"D:\VS实验\FFERP\image\tp3.jpeg");
+                           username.Text.Trim(),fname.Text.Trim(), null, null, null, @"D:\VS实验\FFERP\image\tp3.jpeg");
                             SqlCommand cmd1 = new SqlCommand(sql1, sqlconn);
                             int jg = cmd.ExecuteNonQuery();
                             int jg1 = cmd1.ExecuteNonQuery();

@@ -77,37 +77,50 @@ namespace FFERP
             SqlConnection sqlconn = null;
             sqlconn = new SqlConnection("server=LAPTOP-LJQH2OK2;uid=sa;pwd=123;database=FF ERP");
             sqlconn.Open();
-            string sql1 = string.Format("update [user] set 用户名='{0}',家庭='{1}',性别='{2}',年龄='{3}',电话='{4}' where 用户名='{5}'",
-                usernamebox.Text.Trim(), fnamebox.Text.Trim(), sexbox.Text.Trim(), agebox.Text.Trim(), phonebox.Text.Trim(), acc.Username);
-            SqlCommand cmd1 = new SqlCommand(sql1, sqlconn);
-            int jg1 = cmd1.ExecuteNonQuery();
 
-            string sql2 = string.Format("update ie set 用户名='{0}' where 用户名='{1}'",
-                           usernamebox.Text.Trim(), acc.Username);
-            SqlCommand cmd2 = new SqlCommand(sql2, sqlconn);
-            int jg2 = cmd2.ExecuteNonQuery();
-
-            string sql3 = string.Format("update budget set 用户名='{0}' where 用户名='{1}'",
-                           usernamebox.Text.Trim(), acc.Username);
-            SqlCommand cmd3 = new SqlCommand(sql3, sqlconn);
-            int jg3 = cmd3.ExecuteNonQuery();
-
-            string sql4 = string.Format("update account set 用户名='{0}' where 用户名='{1}'",
-                           usernamebox.Text.Trim(), acc.Username);
-            SqlCommand cmd4 = new SqlCommand(sql4, sqlconn);
-            int jg4 = cmd4.ExecuteNonQuery();
-
-
-            if (jg1 > 0)
+            string query = "SELECT COUNT(*) FROM account WHERE 用户名 = @input";
+            SqlCommand command = new SqlCommand(query, sqlconn);
+            command.Parameters.AddWithValue("@input", usernamebox.Text.Trim());
+            int count = (int)command.ExecuteScalar(); // 执行查询并返回结果集中的第一行的第一列                      
+            if (count > 0)
             {
-                acc.Username = usernamebox.Text.Trim();
-                MessageBox.Show("修改成功");
+                MessageBox.Show("用户名已存在");
             }
+
             else
             {
-                MessageBox.Show("修改失败");
+                string sql1 = string.Format("update [user] set 用户名='{0}',家庭='{1}',性别='{2}',年龄='{3}',电话='{4}' where 用户名='{5}'",
+                    usernamebox.Text.Trim(), fnamebox.Text.Trim(), sexbox.Text.Trim(), agebox.Text.Trim(), phonebox.Text.Trim(), acc.Username);
+                SqlCommand cmd1 = new SqlCommand(sql1, sqlconn);
+                int jg1 = cmd1.ExecuteNonQuery();
+
+                string sql2 = string.Format("update ie set 用户名='{0}' where 用户名='{1}'",
+                               usernamebox.Text.Trim(), acc.Username);
+                SqlCommand cmd2 = new SqlCommand(sql2, sqlconn);
+                int jg2 = cmd2.ExecuteNonQuery();
+
+                string sql3 = string.Format("update budget set 用户名='{0}' where 用户名='{1}'",
+                               usernamebox.Text.Trim(), acc.Username);
+                SqlCommand cmd3 = new SqlCommand(sql3, sqlconn);
+                int jg3 = cmd3.ExecuteNonQuery();
+
+                string sql4 = string.Format("update account set 用户名='{0}' where 用户名='{1}'",
+                               usernamebox.Text.Trim(), acc.Username);
+                SqlCommand cmd4 = new SqlCommand(sql4, sqlconn);
+                int jg4 = cmd4.ExecuteNonQuery();
+
+
+                if (jg1 > 0)
+                {
+                    acc.Username = usernamebox.Text.Trim();
+                    MessageBox.Show("修改成功");
+                }
+                else
+                {
+                    MessageBox.Show("修改失败");
+                }
+                sqlconn.Close();
             }
-            sqlconn.Close();
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)

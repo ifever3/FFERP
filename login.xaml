@@ -16,7 +16,7 @@
                 <Image Source="image\login.jpeg" Stretch="UniformToFill" Margin="374,0,50,0"/>
                 <materialDesign:PackIcon Kind="CurrencyUsd" Foreground="#FF673AB7" Height="66" Width="67" Margin="62,37,0,0"  />
                 <TextBox
-  materialDesign:HintAssist.Hint="Userid" Name="userid"
+  materialDesign:HintAssist.Hint="Username" Name="username"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Top" Margin="82,143,395,0" Height="33" />
                 <PasswordBox

@@ -21,7 +21,7 @@
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Top" Margin="451,126,48,0" Height="36" />
                 <TextBox
-  materialDesign:HintAssist.Hint="UserId" Name="userid"
+  materialDesign:HintAssist.Hint="UserId" Name="username"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Top" Margin="452,167,48,0" Height="33" />
                 <PasswordBox

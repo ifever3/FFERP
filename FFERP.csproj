@@ -15,6 +15,7 @@
     <None Remove="image\tp3.jpeg" />
     <None Remove="image\ums-admin.png" />
     <None Remove="image\意见反馈.png" />
+    <None Remove="image\日历,日期.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +43,7 @@
     <Resource Include="image\tp3.jpeg" />
     <Resource Include="image\ums-admin.png" />
     <Resource Include="image\意见反馈.png" />
+    <Resource Include="image\日历,日期.png" />
   </ItemGroup>
 
 </Project>

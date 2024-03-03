@@ -85,12 +85,17 @@
   materialDesign:HintAssist.Hint="日期"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Top" Margin="82,32,811,0" />
-                
-                <materialDesign:PackIcon Name="dateicon"  Kind="CalendarRange" Margin="240,43,0,0" Height="22" Width="25" Foreground="#FFA04769" MouseLeftButtonUp="dateicon_MouseLeftButtonUp"  />
-                <Popup x:Name="Pop" PopupAnimation="None"   PlacementTarget="{Binding ElementName=tb_calendar}" Placement="Bottom"  AllowsTransparency="True" StaysOpen="False" VerticalAlignment="Top" Margin="0,0,0,0">
-                    <Calendar Name="calendar" HorizontalAlignment="Left"  VerticalAlignment="Top" DisplayMode="Decade" DisplayModeChanged="calendar_DisplayModeChanged" DisplayDateChanged="calendar_DisplayDateChanged" />
-                </Popup>
 
+                <Image Name="calendar_img" Margin="249,46,776,537" Source="D:\VS实验\FFERP\image\日历,日期.png" MouseLeftButtonUp="calendar_img_MouseLeftButtonUp" />
+                <Calendar Name="calendar" HorizontalAlignment="Left"  VerticalAlignment="Top" DisplayMode="Decade" DisplayModeChanged="calendar_DisplayModeChanged" DisplayDateChanged="calendar_DisplayDateChanged" Margin="56,68,0,0" Visibility="Hidden" Panel.ZIndex="1" />
+                <Calendar Name="calendar1" HorizontalAlignment="Left"  VerticalAlignment="Top" DisplayMode="Year"  Margin="56,68,0,0" Visibility="Hidden" Panel.ZIndex="1" DisplayDateChanged="calendar1_DisplayDateChanged" DisplayModeChanged="calendar1_DisplayModeChanged" />
+
+                <Button
+    Style="{StaticResource MaterialDesignRaisedLightButton}"
+    Width="100"
+    ToolTip="Resource name: MaterialDesignRaisedLightButton" Margin="823,36,123,538" Background="#FFE5D3BF" Foreground="#DDFFFFFF" BorderBrush="#FFE5D3BF" Click="Button_Click_4">
+                    确认
+                </Button>
 
 
                 <materialDesign:Card   Margin="56,82,375,249">
@@ -98,10 +103,10 @@
                         <TextBlock HorizontalAlignment="Left" Margin="36,10,0,0" TextWrapping="Wrap" Text="对比统计" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
                         <lvc:CartesianChart Series="{Binding SeriesCollection1}"  LegendLocation="Right" Margin="10,40,205,10" Background="White"/>
                         <TextBlock HorizontalAlignment="Left" Margin="439,40,0,0" TextWrapping="Wrap" Text="共" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="462,40,0,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
+                        <TextBlock Name="count" HorizontalAlignment="Left" Margin="462,40,0,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
                         <TextBlock HorizontalAlignment="Left" Margin="506,40,0,0" TextWrapping="Wrap" Text="笔，合计" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
                         <TextBlock HorizontalAlignment="Left" Margin="451,87,0,0" TextWrapping="Wrap" Text="￥" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="20" Foreground="#FFA04747"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="478,85,0,0" TextWrapping="Wrap" Text="10000" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="24" Foreground="#FFA04747"/>
+                        <TextBlock Name="num" HorizontalAlignment="Left" Margin="478,85,0,0" TextWrapping="Wrap" Text="10000" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="24" Foreground="#FFA04747"/>
                     </Grid>
                 </materialDesign:Card>
 
@@ -124,11 +129,11 @@
   SelectionMode="Extended" Margin="34,38,35,10" Background="White" />
                     </Grid>
                 </materialDesign:Card>
-                
-                
+
+
                 <ToggleButton 
-  Style="{StaticResource MaterialDesignSwitchToggleButton}" Name="bill"
-  ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="360,30,652,528" IsChecked="False" Click="bill_Click" >
+  Style="{StaticResource MaterialDesignSwitchToggleButton}"  Name="bill"
+  ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="360,30,652,528" IsChecked="False"  >
                     <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
                         <SolidColorBrush
       Color="Green" />
@@ -143,7 +148,7 @@
 
                 <ToggleButton
   Style="{StaticResource MaterialDesignSwitchToggleButton}" Name="uof"
-  ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="523,29,489,527">
+  ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="523,29,489,527" IsChecked="False">
                     <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
                         <SolidColorBrush
       Color="Green" />
@@ -159,7 +164,7 @@
 
                 <ToggleButton
   Style="{StaticResource MaterialDesignSwitchToggleButton}" Name="type"
-  ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="698,29,314,527">
+  ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="698,29,314,527" IsChecked="False">
                     <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
                         <SolidColorBrush
       Color="Green" />
