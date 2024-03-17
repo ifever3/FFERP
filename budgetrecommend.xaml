@@ -83,23 +83,23 @@
                 </Button>
 
                 <TextBlock HorizontalAlignment="Left" Margin="72,50,0,0" TextWrapping="Wrap" Text="预算计划(￥):" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="20" Foreground="#FFA04747"/>
-                <TextBox
+                <TextBox Name="budgetsum"
   materialDesign:HintAssist.Hint="budget"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Top" Margin="220,50,669,0" />
-                <CheckBox
+                <CheckBox Name="life"
     Style="{StaticResource MaterialDesignCheckBox}" Margin="413,52,560,513" Foreground="#FFA04747" FontSize="14">
                     偏生活
                 </CheckBox>
-                <CheckBox
+                <CheckBox Name="play"
     Style="{StaticResource MaterialDesignCheckBox}" Margin="517,53,456,513" Foreground="#FFA04747" FontSize="14">
                     偏游玩
                 </CheckBox>
-                <CheckBox
+                <CheckBox Name="invest"
     Style="{StaticResource MaterialDesignCheckBox}" Margin="626,53,347,513" Foreground="#FFA04747" FontSize="14">
                     偏投资
                 </CheckBox>
-                <CheckBox
+                <CheckBox   Name="save"
     Style="{StaticResource MaterialDesignCheckBox}" Margin="741,53,232,513" Foreground="#FFA04747" FontSize="14">
                     偏省钱
                 </CheckBox>
@@ -107,14 +107,22 @@
                 <Button
     Style="{StaticResource MaterialDesignRaisedLightButton}"
     Width="100"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Margin="866,52,80,522" Background="#FFE5D3BF" Foreground="#DDFFFFFF" BorderBrush="#FFE5D3BF">
+    ToolTip="Resource name: MaterialDesignRaisedLightButton" Margin="866,52,80,522" Background="#FFE5D3BF" Foreground="#DDFFFFFF" BorderBrush="#FFE5D3BF" Click="Button_Click_5">
                     确认
                 </Button>
 
                 <materialDesign:Card   Margin="72,128,523,34">
                     <Grid >
                         <TextBlock HorizontalAlignment="Left" Margin="33,10,0,0" TextWrapping="Wrap" Text="预算占比" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                        <lvc:CartesianChart Series="{Binding SeriesCollection2}"  LegendLocation="Right" Margin="24,45,24,10" Background="White"/>
+                        <lvc:PieChart Name="pietype" LegendLocation="Bottom" Hoverable="False" 
+                          DataTooltip="{x:Null}" Margin="10,43,10,10" >
+                            <lvc:PieChart.Series>
+                                <lvc:PieSeries Name="life1"  Title="生活" DataLabels="True"  Values="10"/>
+                                <lvc:PieSeries Name="play1" Title="游玩" DataLabels="True" Values="15"/>
+                                <lvc:PieSeries Name="invest1" Title="投资" DataLabels="True"  Values="40"/>
+                                <lvc:PieSeries Name="save1" Title="存储" DataLabels="True" Values="20"/>
+                            </lvc:PieChart.Series>
+                        </lvc:PieChart>
                     </Grid>
                 </materialDesign:Card>
 
@@ -125,10 +133,10 @@
                         <Label Content="投资理财基金 ￥：" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFA04747"/>
                         <Label Content="银行存储     ￥：" HorizontalAlignment="Left" Margin="24,343,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFA04747" Height="35" Width="174"/>
 
-                        <Label Content="100" HorizontalAlignment="Left" Margin="223,39,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFA04747"/>
-                        <Label Content="100" HorizontalAlignment="Left" Margin="223,130,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFA04747"/>
-                        <Label Content="100" HorizontalAlignment="Left" Margin="223,240,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFA04747"/>
-                        <Label Content="100" HorizontalAlignment="Left" Margin="223,343,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFA04747" Height="35" Width="43"/>
+                        <Label Name="life2" Content="100" HorizontalAlignment="Left" Margin="223,39,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFA04747"/>
+                        <Label Name="play2" Content="100" HorizontalAlignment="Left" Margin="223,130,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFA04747"/>
+                        <Label  Name="invest2" Content="100" HorizontalAlignment="Left" Margin="223,240,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFA04747"/>
+                        <Label  Name="save2" Content="100" HorizontalAlignment="Left" Margin="223,343,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFA04747" />
                     </Grid>
                 </materialDesign:Card>
 

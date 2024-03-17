@@ -101,32 +101,51 @@
                 <materialDesign:Card   Margin="56,82,375,249">
                     <Grid>
                         <TextBlock HorizontalAlignment="Left" Margin="36,10,0,0" TextWrapping="Wrap" Text="对比统计" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                        <lvc:CartesianChart Series="{Binding SeriesCollection1}"  LegendLocation="Right" Margin="10,40,205,10" Background="White"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="439,40,0,0" TextWrapping="Wrap" Text="共" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                        <TextBlock Name="count" HorizontalAlignment="Left" Margin="462,40,0,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="506,40,0,0" TextWrapping="Wrap" Text="笔，合计" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="451,87,0,0" TextWrapping="Wrap" Text="￥" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="20" Foreground="#FFA04747"/>
-                        <TextBlock Name="num" HorizontalAlignment="Left" Margin="478,85,0,0" TextWrapping="Wrap" Text="10000" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="24" Foreground="#FFA04747"/>
+                        <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Top" Margin="10,38,10,10">
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis x:Name="month" Title="月份" Labels="{Binding Labels}" FontSize="12"></lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis x:Name="money" Title="金额" LabelFormatter="{Binding FormatterT}" Foreground="DodgerBlue" FontSize="14" />
+                            </lvc:CartesianChart.AxisY>
+                        </lvc:CartesianChart>
+
+
                     </Grid>
                 </materialDesign:Card>
 
                 <materialDesign:Card   Margin="691,82,56,249">
-                    <Grid Width="307">
+                    <Grid >
                         <TextBlock HorizontalAlignment="Left" Margin="33,10,0,0" TextWrapping="Wrap" Text="类型统计" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                        <lvc:CartesianChart Series="{Binding SeriesCollection2}"  LegendLocation="Right" Margin="24,45,24,10" Background="White"/>
+                        <lvc:PieChart Name="pietype" LegendLocation="Bottom" Hoverable="False" 
+                          DataTooltip="{x:Null}" Margin="10,43,10,10" >
+                            <lvc:PieChart.Series>
+                                <lvc:PieSeries Name="cloth"  Title="衣" DataLabels="True" LabelPoint="{Binding PointLabel}" Values="10"/>
+                                <lvc:PieSeries Name="eat" Title="食" DataLabels="True" LabelPoint="{Binding PointLabel1}" Values="15"/>
+                                <lvc:PieSeries Name="live" Title="住" DataLabels="True" LabelPoint="{Binding PointLabel2}" Values="40"/>
+                                <lvc:PieSeries Name="tran" Title="行" DataLabels="True" LabelPoint="{Binding PointLabel3}" Values="20"/>
+                                <lvc:PieSeries Name="other" Title="其他" DataLabels="True" LabelPoint="{Binding PointLabel4}" Values="10"/>
+                            </lvc:PieChart.Series>
+                        </lvc:PieChart>
+
                     </Grid>
                 </materialDesign:Card>
 
 
                 <materialDesign:Card  UniformCornerRadius="20" Margin="56,372,56,10">
-                    <Grid >
-                        <TextBlock HorizontalAlignment="Left" Margin="52,10,0,0" TextWrapping="Wrap" Text="排行榜" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
+                    <Grid>
+                        <TextBlock HorizontalAlignment="Left" Margin="255,6,0,0" TextWrapping="Wrap" Text="共" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
+                        <TextBlock Name="count" HorizontalAlignment="Left" Margin="274,6,0,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="321,6,0,0" TextWrapping="Wrap" Text="笔，合计" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="382,0,0,182" TextWrapping="Wrap" Text="￥" VerticalAlignment="Bottom" FontFamily="Adobe Gothic Std B" FontSize="20" Foreground="#FFA04747"/>
+                        <TextBlock Name="num" HorizontalAlignment="Left" Margin="407,-4,0,0" TextWrapping="Wrap" Text="10000000" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="24" Foreground="#FFA04747" Height="34"/>
+                        <TextBlock Name="pa" HorizontalAlignment="Left" Margin="52,10,0,0" TextWrapping="Wrap" Text="排行榜" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
                         <DataGrid   
   ItemsSource="{Binding Items2}"
   CanUserSortColumns="True"
   CanUserAddRows="False" Name="data1"
   SelectionUnit="Cell"
-  SelectionMode="Extended" Margin="34,38,35,10" Background="White" />
+  SelectionMode="Extended" Margin="34,38,35,10" Background="White" IsReadOnly="True" />
                     </Grid>
                 </materialDesign:Card>
 

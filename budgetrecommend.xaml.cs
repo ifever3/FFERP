@@ -12,6 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Data;
+using LiveCharts;
+using LiveCharts.Wpf;
+using System.Collections.ObjectModel;
 
 namespace FFERP
 {
@@ -23,6 +28,7 @@ namespace FFERP
         public budgetrecommend()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -47,6 +53,48 @@ namespace FFERP
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void setmoney()
+        {
+            
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            double l = 10, p = 10, i = 10, s = 10;
+            if (life.IsChecked == true)
+            {
+                l = l + 5;
+            }
+            if (play.IsChecked == true)
+            {
+                p = p + 5;
+            }
+            if (invest.IsChecked == true)
+            {
+                i = i + 5;
+            }
+            if (save.IsChecked == true)
+            {
+                s = s + 5;
+            }
+          double sl = l / (l + p + i + s);
+          double sp = p / (l + p + i + s);
+          double si = i / (l + p + i + s);
+          double ss = s / (l + p + i + s);
+
+            double sum = Convert.ToInt32(budgetsum.Text.Trim());
+
+            life1.Values = new ChartValues<int> { Convert.ToInt32(sum*sl) };
+            play1.Values = new ChartValues<int> { Convert.ToInt32(sum * sp) };
+            invest1.Values = new ChartValues<int> { Convert.ToInt32(sum * si) };
+            save1.Values = new ChartValues<int> { Convert.ToInt32(sum * ss) };
+
+            life2.Content = Convert.ToInt32(sum * sl);
+            play2.Content = Convert.ToInt32(sum * sp);
+            invest2.Content = Convert.ToInt32(sum * si);
+            save2.Content = Convert.ToInt32(sum * ss);
         }
     }
 }

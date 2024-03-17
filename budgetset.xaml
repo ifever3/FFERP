@@ -84,49 +84,48 @@
 
                 <TextBlock HorizontalAlignment="Left" Margin="109,40,0,0" TextWrapping="Wrap" Text="本月预计花费预算：" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
                 <TextBlock HorizontalAlignment="Left" Margin="662,38,0,0" TextWrapping="Wrap" Text="本月花费总预计：" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                <TextBlock HorizontalAlignment="Left" Margin="829,32,0,0" TextWrapping="Wrap" Text="￥" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="20" Foreground="#FFA04747"/>
-                <TextBlock HorizontalAlignment="Left" Margin="790,32,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="20" Foreground="#FFA04747"/>
+                <TextBlock Name="sum" HorizontalAlignment="Left" Margin="790,32,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="20" Foreground="#FFA04747"/>
 
                 <TextBlock HorizontalAlignment="Left" Margin="151,87,0,0" TextWrapping="Wrap" Text="本月已花费：" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                <TextBlock HorizontalAlignment="Left" Margin="252,87,0,0" TextWrapping="Wrap" Text="花费" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                <TextBlock HorizontalAlignment="Left" Margin="341,87,0,0" TextWrapping="Wrap" Text="花费" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                <TextBlock HorizontalAlignment="Left" Margin="420,87,0,0" TextWrapping="Wrap" Text="花费" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                <TextBlock HorizontalAlignment="Center" Margin="0,87,0,0" TextWrapping="Wrap" Text="花费" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                <TextBlock HorizontalAlignment="Left" Margin="585,87,0,0" TextWrapping="Wrap" Text="花费" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
+                <TextBlock Name="cloth1" HorizontalAlignment="Left" Margin="252,87,0,0" TextWrapping="Wrap" Text="花费" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
+                <TextBlock Name="food1" HorizontalAlignment="Left" Margin="341,87,0,0" TextWrapping="Wrap" Text="花费" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
+                <TextBlock Name="live1" HorizontalAlignment="Left" Margin="420,87,0,0" TextWrapping="Wrap" Text="花费" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
+                <TextBlock Name="tran1" HorizontalAlignment="Center" Margin="0,87,0,0" TextWrapping="Wrap" Text="花费" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
+                <TextBlock Name="other1" HorizontalAlignment="Left" Margin="585,87,0,0" TextWrapping="Wrap" Text="花费" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
                 <TextBlock HorizontalAlignment="Left" Margin="662,87,0,0" TextWrapping="Wrap" Text="本月总花费：" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                <TextBlock HorizontalAlignment="Left" Margin="765,87,0,0" TextWrapping="Wrap" Text="1000000" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
+                <TextBlock Name="sum1" HorizontalAlignment="Left" Margin="765,87,0,0" TextWrapping="Wrap" Text="1000000" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
 
-                <TextBox
+                <TextBox Name="cloth"
   materialDesign:HintAssist.Hint="￥衣"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Top" Margin="252,30,728,0" />
-                <TextBox
+                <TextBox    Name="food"
   materialDesign:HintAssist.Hint="￥食"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Top" Margin="335,30,645,0" />
-                <TextBox
+                <TextBox    Name="live"
   materialDesign:HintAssist.Hint="￥住"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Top" Margin="420,30,560,0" />
-                <TextBox
+                <TextBox    Name="tran"
   materialDesign:HintAssist.Hint="￥行"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Top" Margin="503,30,477,0" />
-                <TextBox
+                <TextBox    Name="other"
   materialDesign:HintAssist.Hint="￥其他"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Top" Margin="585,30,395,0" />
-                <Button
+                <Button Name="confirm"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
     Width="100"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Margin="894,36,52,538" Background="#FFE5D3BF" Foreground="#DDFFFFFF" BorderBrush="#FFE5D3BF">
-                   确认
+    ToolTip="Resource name: MaterialDesignRaisedLightButton" Margin="894,36,52,538" Background="#FFE5D3BF" Foreground="#DDFFFFFF" BorderBrush="#FFE5D3BF" Click="confirm_Click">
+                    确认
                 </Button>
 
                 <materialDesign:Card  UniformCornerRadius="20" Margin="34,130,300,10">
-                    <Grid >
+                    <Grid>
                         <TextBlock HorizontalAlignment="Left" Margin="52,10,0,0" TextWrapping="Wrap" Text="预算与消费报表" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                        <DataGrid   
+                        <DataGrid   Name="data1"
   ItemsSource="{Binding Items2}"
   CanUserSortColumns="True"
   CanUserAddRows="False"
@@ -138,14 +137,33 @@
                 <materialDesign:Card   Margin="765,130,24,10">
                     <Grid >
                         <TextBlock HorizontalAlignment="Left" Margin="33,10,0,0" TextWrapping="Wrap" Text="预算占比" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                        <lvc:CartesianChart Series="{Binding SeriesCollection2}"  LegendLocation="Right" Margin="33,45,32,252" Background="White"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="33,0,0,0" TextWrapping="Wrap" Text="实际占比" VerticalAlignment="Center" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                        <lvc:CartesianChart Series="{Binding SeriesCollection2}"  LegendLocation="Right" Margin="33,270,32,24" Background="White"/>
+                        <lvc:PieChart Name="pietype1" LegendLocation="Bottom" Hoverable="False" 
+                          DataTooltip="{x:Null}" Margin="0,38,0,236"  >
+                                <lvc:PieChart.Series>
+                                <lvc:PieSeries Name="cloth2"  Title="衣" DataLabels="True"   Values="10" />
+                                <lvc:PieSeries Name="food2" Title="食" DataLabels="True"  Values="15" />
+                                <lvc:PieSeries Name="live2" Title="住" DataLabels="True"  Values="40"/>
+                                <lvc:PieSeries Name="tran2" Title="行" DataLabels="True"   Values="20" />
+                                <lvc:PieSeries Name="other2" Title="其他" DataLabels="True"  Values="10"/>
+                                </lvc:PieChart.Series>
+                            </lvc:PieChart>
+
+                        <TextBlock HorizontalAlignment="Left" Margin="33,235,0,0" TextWrapping="Wrap" Text="实际占比" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
+                        <lvc:PieChart Name="pietype2" LegendLocation="Bottom" Hoverable="False" 
+                          DataTooltip="{x:Null}" Margin="10,263,-10,0"  >
+                            <lvc:PieChart.Series>
+                                <lvc:PieSeries Name="cloth3"  Title="衣" DataLabels="True"  Values="10" />
+                                <lvc:PieSeries Name="food3" Title="食" DataLabels="True"  Values="15" />
+                                <lvc:PieSeries Name="live3" Title="住" DataLabels="True" Values="40"/>
+                                <lvc:PieSeries Name="tran3" Title="行" DataLabels="True"  Values="20" />
+                                <lvc:PieSeries Name="other3" Title="其他" DataLabels="True"  Values="10"/>
+                            </lvc:PieChart.Series>
+                        </lvc:PieChart>
                     </Grid>
                 </materialDesign:Card>
 
             </Grid>
         </materialDesign:DrawerHost>
-         <Frame x:Name="budset" NavigationUIVisibility="Hidden"></Frame>
+        <Frame x:Name="budset" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Page>

@@ -13,7 +13,92 @@
 
     <Grid Background="WhiteSmoke">
 
-        <materialDesign:DrawerHost
+        <materialDesign:DialogHost
+  DialogClosing="DialogHost_DialogClosing"
+  HorizontalAlignment="Center"
+  VerticalAlignment="Center">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel
+      Margin="16">
+                    <TextBlock>
+      Add
+                    </TextBlock>
+                    <DatePicker Margin="0 8 0 0" Name="adddate"
+  Width="100"
+  materialDesign:HintAssist.Hint="Pick Date"
+  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    <ComboBox Margin="0 8 0 0" Name="addoi"
+  materialDesign:HintAssist.Hint="收支类型">
+                        <ComboBoxItem>
+                            支出
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            收入
+                        </ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox Margin="0 8 0 0" Name="addtype"
+  materialDesign:HintAssist.Hint="用途类型">
+                        <ComboBoxItem>
+                            衣
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            食
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            住
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            行
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            其他
+                        </ComboBoxItem>
+                    </ComboBox>
+                    <TextBox Margin="0 8 0 0" Name="addmoney"
+  materialDesign:HintAssist.Hint="金额"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" />
+                    <TextBox Margin="0 8 0 0" Name="addway"
+  materialDesign:HintAssist.Hint="途径类型"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" />
+                    
+                    <TextBox Margin="0 8 0 0" Name="addu"
+  materialDesign:HintAssist.Hint="用途"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" />
+                    <StackPanel
+        Orientation="Horizontal"
+        HorizontalAlignment="Right">
+                        <Button Name="accept"
+          Style="{StaticResource MaterialDesignFlatButton}"
+          IsDefault="True"
+          Margin="0 8 8 0"
+          Command="materialDesign:DialogHost.CloseDialogCommand" Click="accept_Click">
+                            <Button.CommandParameter>
+                                <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                    True
+                                </system:Boolean>
+                            </Button.CommandParameter>
+                            ACCEPT
+                        </Button>
+                        <Button Name="cancel"
+          Style="{StaticResource MaterialDesignFlatButton}"
+          IsCancel="True"
+          Margin="0 8 8 0"
+          Command="materialDesign:DialogHost.CloseDialogCommand" Click="cancel_Click">
+                            <Button.CommandParameter>
+                                <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                    False
+                                </system:Boolean>
+                            </Button.CommandParameter>
+                            CANCEL
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+
+            <materialDesign:DrawerHost
   HorizontalAlignment="Center"
   VerticalAlignment="Center"
   BorderThickness="2"
@@ -78,7 +163,8 @@
 
                 <Button
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
-  ToolTip="MaterialDesignFloatingActionAccentButton" Margin="900,516,66,10" Width="70" Height="70" Panel.ZIndex="1">
+                     Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+  ToolTip="MaterialDesignFloatingActionAccentButton" Margin="900,516,66,10" Width="70" Height="70" Panel.ZIndex="1" Cursor="Hand" Click="Button_Click_5">
                     <materialDesign:PackIcon
     Kind="Add"
     Height="40"
@@ -90,34 +176,50 @@
 
                 <materialDesign:Card  UniformCornerRadius="20" Margin="84,94,84,36">
                     <Grid >
-                        <DataGrid   
+                            <DataGrid   
                             Name="data1"
   ItemsSource="{Binding Items2}"
   CanUserSortColumns="True"
   CanUserAddRows="False"
-  SelectionUnit="Cell"
-  SelectionMode="Extended" Margin="34,97,35,24" />
+  SelectionUnit="FullRow"
+  SelectionMode="Single" Margin="34,97,35,24" CellEditEnding="data1_CellEditEnding" BeginningEdit="data1_BeginningEdit" />
 
-                        <DatePicker Name="datepicker" materialDesign:HintAssist.Hint="日期" HorizontalAlignment="Left" Margin="340,33,0,0" VerticalAlignment="Top" Height="36" Width="154"/>
+                            <DatePicker Name="datepicker" materialDesign:HintAssist.Hint="日期" HorizontalAlignment="Left" Margin="256,33,0,0" VerticalAlignment="Top" Height="36" Width="154"/>
                         <TextBox
   materialDesign:HintAssist.Hint="Name" Name="usernamebox"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-  VerticalAlignment="Top" Margin="120,33,608,0" />
+  VerticalAlignment="Top" Margin="63,33,665,0" />
+
+                        <TextBlock HorizontalAlignment="Left" Margin="446,37,0,0" TextWrapping="Wrap" Text="个人" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="540,37,0,0" TextWrapping="Wrap" Text="家庭" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
+                        <ToggleButton
+  Style="{StaticResource MaterialDesignSwitchToggleButton}" Name="uof"
+  ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="491,40,353,414" IsChecked="False" Click="uof_Click">
+                            <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                                <SolidColorBrush
+      Color="Green" />
+                            </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                                <SolidColorBrush
+      Color="Red" />
+                            </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        </ToggleButton>
 
                         <Button
     Style="{StaticResource MaterialDesignRaisedAccentButton}"
     Height="50"
     materialDesign:ButtonAssist.CornerRadius="25 25 0 0" 
     ToolTip="MaterialDesignRaisedAccentButton with Round Top Corners" Margin="597,19,64,397" Background="#FF673AB7" BorderBrush="#FFBFBDC0" Click="Button_Click_4">
-                            <TextBlock 
+                            <TextBlock Name="sou"
       Text="搜 索" Foreground="#DDFFFFFF" FontFamily="Adobe Gothic Std B" FontSize="18" />
                         </Button>
                     </Grid>
                 </materialDesign:Card>
 
-               
+
             </Grid>
         </materialDesign:DrawerHost>
+        </materialDesign:DialogHost>
         <Frame x:Name="dailyf" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Page>
