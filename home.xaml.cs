@@ -370,7 +370,7 @@ namespace FFERP
                        addtype.Items.Add(sdr["用途类型"].ToString()); // Add item to ComboBox
                        
                         // Get the value of the last item added to ComboBox
-                         addoi.Text = addoi.Items[addtype.Items.Count - 1].ToString();
+                         addoi.Text = addoi.Items[addoi.Items.Count - 1].ToString();
                          addtype.Text = addtype.Items[addtype.Items.Count - 1].ToString();
                        
                     }
@@ -446,6 +446,8 @@ namespace FFERP
                         addtype.Text = "";
                         addu.Text = "";
                         addway.Text = "";
+                        addoi.Items.RemoveAt(addoi.Items.Count - 1);
+                        addtype.Items.RemoveAt(addtype.Items.Count - 1);
                     }
                     else
                     {

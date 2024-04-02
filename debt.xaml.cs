@@ -81,6 +81,7 @@ namespace FFERP
         {
             if (i == 1)
             {
+                add.Visibility = Visibility.Hidden;
                 data1.Columns.RemoveAt(0);
                 i = 0;
             }

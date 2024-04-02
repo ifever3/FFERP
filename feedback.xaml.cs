@@ -45,5 +45,10 @@ namespace FFERP
             feedback p = new feedback();
             fb.Content = p;
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            fdtext.Text = "  ";
+        }
     }
 }

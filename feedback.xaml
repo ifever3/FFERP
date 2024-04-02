@@ -85,9 +85,15 @@
 
                     <materialDesign:PackIcon Kind="CommentQuoteOutline" Height="62" Width="88" BorderBrush="White" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" FlowDirection="LeftToRight" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Margin="14,-32,0,0" />
 
-                    <TextBox Text="       用户反馈" HorizontalAlignment="Center" Margin="0,93,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="890" Height="402" Background="White" Foreground="#FFB39DDB" FontSize="22"/>
+                    <TextBox Name="fdtext" Text="       用户反馈" HorizontalAlignment="Center" Margin="0,93,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="890" Height="402" Background="White" Foreground="#FFB39DDB" FontSize="22"/>
+                    
                     <TextBlock HorizontalAlignment="Left" Margin="107,-32,0,0" TextWrapping="Wrap" Text="用户反馈" VerticalAlignment="Top" Foreground="White" FontSize="48"/>
+                    <Button Margin="782,407,-45,-14" Cursor="Hand"  Background="#FFB79DE1" BorderBrush="#FFF4F2F9" Height="60" Click="Button_Click_4" >
+                        <materialDesign:PackIcon Kind="ArrowRightCircleOutline" Height="38" Width="38" />
+                    </Button>
+
                 </Grid>
+
 
             </Grid>
         </materialDesign:DrawerHost>

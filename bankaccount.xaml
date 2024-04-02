@@ -144,7 +144,7 @@
                     <materialDesign:PackIcon Kind="MenuRight" HorizontalAlignment="Center" Height="64" Width="32" VerticalAlignment="Center" VerticalContentAlignment="Top" />
                 </Button>
 
-                <Button
+                <Button Name="add"
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
                     Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
   ToolTip="MaterialDesignFloatingActionAccentButton" Margin="900,516,66,10" Width="70" Height="70" Panel.ZIndex="1" Cursor="Hand">

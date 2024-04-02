@@ -38,12 +38,12 @@
                     </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                         <TextBlock Text="￥" FontWeight="SemiBold" Margin="5 0" />
-                        <ProgressBar Name="bar2" Margin="5 0" Width="126" Height="14" Foreground="#FFFFFF13" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
+                        <ProgressBar Name="bar3" Margin="5 0" Width="126" Height="14" Foreground="#FFFFFF13" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
 
                     </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                         <TextBlock Text="￥" FontWeight="SemiBold" Margin="5 0" />
-                        <ProgressBar Name="bar3" Margin="5 0" Width="126" Height="14" Foreground="#FF269220" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
+                        <ProgressBar x:Name="bar2" Width="126" Height="14" Foreground="#FF269220" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
 
                     </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">

@@ -63,7 +63,7 @@ namespace FFERP
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            double l = 10, p = 15, i = 13, s = 12;
+            double l = 8, p = 15, i = 13, s = 12;
             if (life.IsChecked == true)
             {
                 l = l + 5;
