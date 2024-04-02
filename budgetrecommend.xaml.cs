@@ -48,7 +48,8 @@ namespace FFERP
         }
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-
+            feedback p=new feedback();
+            budrec.Content = p;
         }
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
@@ -62,7 +63,7 @@ namespace FFERP
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            double l = 10, p = 10, i = 10, s = 10;
+            double l = 10, p = 15, i = 13, s = 12;
             if (life.IsChecked == true)
             {
                 l = l + 5;

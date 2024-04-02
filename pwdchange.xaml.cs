@@ -101,6 +101,60 @@ namespace FFERP
             }
             sqlconn.Close();
         }
-    
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            if (FloatingPasswordBox4.Password.Trim().Length == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("原密码不能为空");
+                FloatingPasswordBox4.Focus();
+                return;
+            }
+            if (FloatingPasswordBox4.Password.Trim() != acc.Userpwd)
+            {
+                System.Windows.Forms.MessageBox.Show("原密码不正确，重新输入");
+                FloatingPasswordBox4.Focus();
+                return;
+            }
+            if (FloatingPasswordBox5.Password.Trim().Length == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("新密码不能为空");
+                FloatingPasswordBox5.Focus();
+                return;
+            }
+            if (FloatingPasswordBox5.Password.Trim() == acc.Userpwd)
+            {
+                System.Windows.Forms.MessageBox.Show("密码不能与原密码一致");
+                FloatingPasswordBox5.Focus();
+                return;
+            }
+            if (FloatingPasswordBox6.Password.Trim().Length == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("确认密码不能为空");
+                FloatingPasswordBox6.Focus();
+                return;
+            }
+            if (FloatingPasswordBox6.Password.Trim() != FloatingPasswordBox2.Password)
+            {
+                System.Windows.Forms.MessageBox.Show("密码不一致");
+                FloatingPasswordBox6.Focus();
+                return;
+            }
+
+            SqlConnection sqlconn = new SqlConnection("server=LAPTOP-LJQH2OK2;uid=sa;pwd=123;database=FF ERP");
+            sqlconn.Open();
+            string sql = string.Format("update faccount set 家庭密码 ='{0}' where 家庭='{1}'",
+                FloatingPasswordBox6.Password.Trim(), acc.Userfamily);
+            SqlCommand cmd = new SqlCommand(sql, sqlconn);
+            int jg = cmd.ExecuteNonQuery();
+            if (jg > 0)
+            {               
+                FloatingPasswordBox4.Password = "";
+                FloatingPasswordBox5.Password = "";
+                FloatingPasswordBox6.Password = "";
+                System.Windows.Forms.MessageBox.Show("家庭密码修改成功");
+            }
+            sqlconn.Close();
+        }
     }
 }

@@ -75,33 +75,62 @@
   materialDesign:HintAssist.Hint="旧密码"
   materialDesign:HintAssist.Foreground="#FF673AB7"
   materialDesign:TextFieldAssist.UnderlineBrush="#FF673AB7"
-  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="390,163,318,397" Height="40" />
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="151,166,587,400" Height="40" />
 
                 <PasswordBox
   x:Name="FloatingPasswordBox2"
   materialDesign:HintAssist.Hint="新密码"
   materialDesign:HintAssist.Foreground="#FF673AB7"
   materialDesign:TextFieldAssist.UnderlineBrush="#FF673AB7"
-  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="388,257,318,303" Height="40" />
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="149,263,587,303" Height="40" />
 
                 <PasswordBox
   x:Name="FloatingPasswordBox3"
   materialDesign:HintAssist.Hint="确认密码"
   materialDesign:HintAssist.Foreground="#FF673AB7"
   materialDesign:TextFieldAssist.UnderlineBrush="#FF673AB7"
-  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="388,360,319,198" Height="40" />
-                <Label Content="密码修改" HorizontalAlignment="Center" Margin="0,55,0,0" VerticalAlignment="Top" FontSize="30" Foreground="#FFA985E6" FontFamily="Adobe Garamond Pro" FontWeight="Normal"/>
-                <materialDesign:PackIcon Kind="Key" Margin="306,163,0,0" Height="46" Width="60" Foreground="#FF6133AD" />
-                <materialDesign:PackIcon Kind="Key" Margin="306,257,0,0" Height="46" Width="60" Foreground="#FF6133AD" />
-                <materialDesign:PackIcon Kind="Key" Margin="306,362,0,0" Height="46" Width="60" Foreground="#FF6133AD" />
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="151,364,587,202" Height="40" />
+                <Label Content="用户密码修改" HorizontalAlignment="Left" Margin="185,62,0,0" VerticalAlignment="Top" FontSize="30" Foreground="#FFA985E6" FontFamily="Adobe Garamond Pro" FontWeight="Normal"/>
+                <materialDesign:PackIcon Kind="Key" Margin="84,166,0,0" Height="46" Width="60" Foreground="#FF6133AD" />
+                <materialDesign:PackIcon Kind="Key" Margin="84,260,0,0" Height="46" Width="60" Foreground="#FF6133AD" />
+                <materialDesign:PackIcon Kind="Key" Margin="84,358,0,0" Height="46" Width="60" Foreground="#FF6133AD" />
 
                 <Button
     Style="{StaticResource MaterialDesignOutlinedButton}"
-    ToolTip="MaterialDesignOutlinedButton" Margin="434,462,432,94" HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold" Height="50" Click="Button_Click_3">
+    ToolTip="MaterialDesignOutlinedButton" Margin="193,478,673,78" HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold" Height="50" Click="Button_Click_3">
                     修改密码
                 </Button>
 
+                <PasswordBox
+  x:Name="FloatingPasswordBox4"
+  materialDesign:HintAssist.Hint="旧密码"
+  materialDesign:HintAssist.Foreground="#FF673AB7"
+  materialDesign:TextFieldAssist.UnderlineBrush="#FF673AB7"
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="664,166,74,400" Height="40" />
 
+                <PasswordBox
+  x:Name="FloatingPasswordBox5"
+  materialDesign:HintAssist.Hint="新密码"
+  materialDesign:HintAssist.Foreground="#FF673AB7"
+  materialDesign:TextFieldAssist.UnderlineBrush="#FF673AB7"
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="666,263,70,303" Height="40" />
+
+                <PasswordBox
+  x:Name="FloatingPasswordBox6"
+  materialDesign:HintAssist.Hint="确认密码"
+  materialDesign:HintAssist.Foreground="#FF673AB7"
+  materialDesign:TextFieldAssist.UnderlineBrush="#FF673AB7"
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="664,364,74,202" Height="40" />
+                <Label Content="家庭密码修改" HorizontalAlignment="Left" Margin="702,62,0,0" VerticalAlignment="Top" FontSize="30" Foreground="#FFA985E6" FontFamily="Adobe Garamond Pro" FontWeight="Normal" RenderTransformOrigin="0.5,0.018"/>
+                <materialDesign:PackIcon Kind="Key" Margin="599,166,0,0" Height="46" Width="60" Foreground="#FF6133AD" />
+                <materialDesign:PackIcon Kind="Key" Margin="599,260,0,0" Height="46" Width="60" Foreground="#FF6133AD" />
+                <materialDesign:PackIcon Kind="Key" Margin="599,358,0,0" Height="46" Width="60" Foreground="#FF6133AD" />
+
+                <Button
+    Style="{StaticResource MaterialDesignOutlinedButton}"
+    ToolTip="MaterialDesignOutlinedButton" Margin="710,478,156,78" HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold" Height="50" Click="Button_Click_4" >
+                    修改密码
+                </Button>
 
             </Grid>
         </materialDesign:DrawerHost>

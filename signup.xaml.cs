@@ -76,18 +76,64 @@ namespace FFERP
                         if (count > 0)
                         {
                             MessageBox.Show("用户名已存在");
+                           command.Dispose();
                         }
-                      
+                     
                         else
+                        {
+                        sqlconn = new SqlConnection("server=LAPTOP-LJQH2OK2;uid=sa;pwd=123;database=FF ERP");
+                        sqlconn.Open();
+                        string query1 = "SELECT COUNT(*) FROM faccount WHERE 家庭 = @input1";
+                        SqlCommand command1 = new SqlCommand(query1, sqlconn);
+                        command1.Parameters.AddWithValue("@input1", fname.Text.Trim());
+                        int count1 = (int)command1.ExecuteScalar(); // 执行查询并返回结果集中的第一行的第一列
+                        if (count1 > 0)//查询已有该家庭，则不用注册家庭直接注册用户
+                        {
+                            string sqlc = string.Format("select * from faccount where 家庭='{0}' and 家庭密码='{1}'",
+                    fname.Text.Trim(), passwordbox2.Password.Trim());
+                            SqlCommand cmdd = new SqlCommand(sqlc, sqlconn);                          
+                            SqlDataReader sdr = cmdd.ExecuteReader();
+                            if (sdr.Read())
+                            {
+                                sdr.Close();
+                                string sql = string.Format("insert into account values ('{0}','{1}','{2}');",
+                                                       username.Text.Trim(), passwordbox1.Password.Trim(), fname.Text.Trim());
+                                SqlCommand cmd = new SqlCommand(sql, sqlconn);
+                                string sql1 = string.Format("insert into [user] values ('{0}','{1}','{2}','{3}','{4}','{5}');",
+                               username.Text.Trim(), fname.Text.Trim(), null, null, null, @"D:\VS实验\FFERP\image\tp3.jpeg");
+                                SqlCommand cmd1 = new SqlCommand(sql1, sqlconn);
+                                int jg = cmd.ExecuteNonQuery();
+                                int jg1 = cmd1.ExecuteNonQuery();
+                                if (jg > 0 && jg1 > 0)
+                                {
+                                    MessageBox.Show("注册成功");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("注册失败");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("已有家庭密码错误");
+                                passwordbox2.Focus();
+                            }
+                           
+                        }
+                        else //无家庭则注册家庭及用户
                         {
                             string sql = string.Format("insert into account values ('{0}','{1}','{2}');",
                            username.Text.Trim(), passwordbox1.Password.Trim(), fname.Text.Trim());
                             SqlCommand cmd = new SqlCommand(sql, sqlconn);
                             string sql1 = string.Format("insert into [user] values ('{0}','{1}','{2}','{3}','{4}','{5}');",
-                           username.Text.Trim(),fname.Text.Trim(), null, null, null, @"D:\VS实验\FFERP\image\tp3.jpeg");
+                           username.Text.Trim(), fname.Text.Trim(), null, null, null, @"D:\VS实验\FFERP\image\tp3.jpeg");
                             SqlCommand cmd1 = new SqlCommand(sql1, sqlconn);
+                            string sql2 = string.Format("insert into faccount values ('{0}','{1}');",
+                           fname.Text.Trim(), passwordbox2.Password.Trim());
+                            SqlCommand cmd2 = new SqlCommand(sql2, sqlconn);
                             int jg = cmd.ExecuteNonQuery();
                             int jg1 = cmd1.ExecuteNonQuery();
+                            int jg2 = cmd2.ExecuteNonQuery();
                             if (jg > 0 && jg1 > 0)
                             {
                                 MessageBox.Show("注册成功");
@@ -98,6 +144,8 @@ namespace FFERP
                             }
 
                         }
+
+                    }
 
                     }
                     catch (Exception ex)

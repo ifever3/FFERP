@@ -63,14 +63,7 @@
         Margin="4"
         HorizontalAlignment="Center"
         Style="{DynamicResource MaterialDesignFlatButton}" Cursor="Hand" FontWeight="Bold" FontSize="16" Click="Button_Click_3">
-                        实时汇率转换
-                    </Button>
-                    <Button
-        Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-        Margin="4"
-        HorizontalAlignment="Center"
-        Style="{DynamicResource MaterialDesignFlatButton}" Cursor="Hand" FontWeight="Bold" FontSize="16" Click="Button_Click_4">
-                        AI 理财助手
+                        用 户 反 馈
                     </Button>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>

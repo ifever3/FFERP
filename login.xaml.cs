@@ -66,12 +66,12 @@ namespace FFERP
                     var win = Window.GetWindow(this);
                     win.Close();
                     cmd.Dispose();
+                    
                 }
                 else
                 {
                     MessageBox.Show("用户名或密码错误");
                     password.Focus();
-
                 }
                 sdr.Close();
             }
@@ -81,12 +81,6 @@ namespace FFERP
             }
 
             sqlconn.Close();
-
-
-
-
-
-
             
         }
     }

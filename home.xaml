@@ -11,10 +11,10 @@
       Title="home">
 
     <Grid Background="WhiteSmoke">
-        <materialDesign:Card Margin="34,20,734,345" UniformCornerRadius="20" Padding="10">
-            <StackPanel>
-                <TextBlock Text="支出记录" Margin="10 20" FontWeight="SemiBold" />
-                <Grid Height="150">
+        <materialDesign:Card Margin="34,20,734,345" UniformCornerRadius="20" Padding="10" PreviewMouseLeftButtonDown="Card_PreviewMouseLeftButtonDown">
+            <StackPanel Margin="0,-11,0,1">
+                <TextBlock Text="本月支出记录" Margin="10 20" FontWeight="SemiBold" />
+                <Grid Height="160">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition Width="166.227" />
@@ -24,36 +24,43 @@
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Clicks" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
-                    <TextBlock Text="Likes" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
-                    <TextBlock Text="Followers" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
-                    <TextBlock Text="Impressions" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
+                    <TextBlock Text="衣" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
+                    <TextBlock Text="食" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
+                    <TextBlock Text="住" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
+                    <TextBlock Text="行" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
+                    <TextBlock Text="其他" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
                     <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                        <TextBlock Text="10K" FontWeight="SemiBold" Margin="5 0" />
-                        <ProgressBar Margin="5 0" Width="100" Height="8" Foreground="#FFFFFF13" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
-                        <TextBlock Text="12K" FontWeight="SemiBold" />
+                        <TextBlock Text="￥" FontWeight="SemiBold" Margin="5 0" />
+                        <ProgressBar Name="bar1" Margin="5 0" Width="126" Height="14" Foreground="#FFFFFF13" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
+
                     </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                        <TextBlock Text="10K" FontWeight="SemiBold" Margin="5 0" />
-                        <ProgressBar Margin="5 0" Width="100" Height="8" Foreground="#FFFFFF13" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
-                        <TextBlock Text="12K" FontWeight="SemiBold" />
+                        <TextBlock Text="￥" FontWeight="SemiBold" Margin="5 0" />
+                        <ProgressBar Name="bar2" Margin="5 0" Width="126" Height="14" Foreground="#FFFFFF13" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
+
                     </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                        <TextBlock Text="10K" FontWeight="SemiBold" Margin="5 0" />
-                        <ProgressBar Margin="5 0" Width="100" Height="8" Foreground="SeaGreen" Background="#FFE8E8E8" BorderBrush="SeaGreen" Value="78" />
-                        <TextBlock Text="12K" FontWeight="SemiBold" />
+                        <TextBlock Text="￥" FontWeight="SemiBold" Margin="5 0" />
+                        <ProgressBar Name="bar3" Margin="5 0" Width="126" Height="14" Foreground="#FF269220" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
+
                     </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                        <TextBlock Text="10K" FontWeight="SemiBold" Margin="5 0" />
-                        <ProgressBar Margin="5 0" Width="100" Height="8" Foreground="SeaGreen" Background="#FFE8E8E8" BorderBrush="SeaGreen" Value="78" />
-                        <TextBlock Text="12K" FontWeight="SemiBold" />
+                        <TextBlock Text="￥" FontWeight="SemiBold" Margin="5 0" />
+                        <ProgressBar Name="bar4" Margin="5 0" Width="126" Height="14" Foreground="#FF269220" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
+
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Text="￥" FontWeight="SemiBold" Margin="5 0" />
+                        <ProgressBar Name="bar5" Margin="5 0" Width="127" Height="14" Foreground="#FFFFFF13" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
+
                     </StackPanel>
                 </Grid>
             </StackPanel>
         </materialDesign:Card>
 
-        <Border Background="White" Margin="341,41,293,345" CornerRadius="3" Height="214">
+        <Border Background="White" Margin="341,41,293,345" CornerRadius="3" Height="214" PreviewMouseLeftButtonDown="Border_PreviewMouseLeftButtonDown">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="25*"/>
@@ -117,7 +124,7 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <TextBlock  Text="Office" VerticalAlignment="Bottom" Foreground="Black"  FontWeight="Light"  FontSize="16"/>
+                    <TextBlock  Text="收入情况" VerticalAlignment="Bottom" Foreground="Black"  FontWeight="Light"  FontSize="16"/>
                     <Border Grid.Row="1" BorderThickness="0 0 0 1" Margin="0 0 20 0" VerticalAlignment="Bottom" BorderBrush="#E3E3E3"/>
                     <TextBlock Grid.Row="1" Text="Get More Data" Foreground="#848484" FontWeight="Light" VerticalAlignment="Center" FontSize="12"/>
                     <TextBlock Grid.Row="2" Text="campaign sent 2 days ago" Foreground="#848484"  FontWeight="Light" VerticalAlignment="Center" FontSize="12"/>
@@ -125,35 +132,65 @@
             </Grid>
         </Border>
 
-       
+
 
         <Calendar Name="cal" HorizontalAlignment="Left" Margin="790,20,0,0" VerticalAlignment="Top" Height="323" Width="234"  Visibility="Visible" DisplayMode="Month"/>
 
         <materialDesign:Card Margin="790,359,26,17" UniformCornerRadius="20" Padding="10">
+            <Grid Margin="-17,-18,-17,-17">
+                <TextBlock Margin="162,10,0,193" HorizontalAlignment="Left"  FontWeight="Bold" Text="汇率转换" FontSize="14"/>
+                <TextBox
+                    Name="c1"
+  materialDesign:HintAssist.Hint="国家"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Top" Margin="10,10,98,0" />
+                <TextBox
+                    Name="c2"
+  materialDesign:HintAssist.Hint="国家"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Top" Margin="10,65,98,0" />
+                <Button Margin="162,65,14,132" Cursor="Hand" Click="Button_Click_1">
+                    <materialDesign:PackIcon Kind="ArrowRightCircleOutline" />
+                </Button>
+                <Label Name="cname1" Content="Label" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top"/>
+                <Label Name="cname2" Content="Label" HorizontalAlignment="Left" Margin="124,128,0,0" VerticalAlignment="Top"/>
+                <Label Name="currencyFD" Content="Label" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top"/>
+                <Label Name="resultrate" Content="Label" HorizontalAlignment="Left" Margin="124,163,0,0" VerticalAlignment="Top"/>
+                <Label Name="datetime" Content="Label" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top"/>
+            </Grid>
         </materialDesign:Card>
 
         <materialDesign:Card Margin="34,285,557,17" UniformCornerRadius="20">
-            <StackPanel>
+            <StackPanel ScrollViewer.VerticalScrollBarVisibility="Auto" PreviewMouseLeftButtonDown="StackPanel_PreviewMouseLeftButtonDown">
                 <Grid>
-                    <TextBlock Margin="20" HorizontalAlignment="Left"  FontWeight="SemiBold" Text="Instagram Subscribers" FontSize="18"/>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <TextBlock FontWeight="ExtraBold" FontSize="14" Text="&#xF06C;" FontFamily="wingdings" VerticalAlignment="Center" Foreground="#42A5F4" />
-                        <TextBlock Text="Gained" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="14" Margin="5 0 10 0" />
-                        <TextBlock FontWeight="ExtraBold" FontSize="14" Text="&#xF06C;" FontFamily="wingdings" VerticalAlignment="Center" Foreground="#F55F54" />
-                        <TextBlock Text="Lost" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="14" Margin="5 0 20 0" />
-                    </StackPanel>
+                    <TextBlock Margin="20" HorizontalAlignment="Left"  FontWeight="SemiBold" Text="财经新闻" FontSize="18"/>
+
                 </Grid>
-                <lvc:CartesianChart Series="{Binding SeriesCollection}" Foreground="Black" Margin="10 0" Height="200">
-                    <lvc:CartesianChart.AxisX>
-                        <lvc:Axis Labels="{Binding Labels}" Separator="{x:Static lvc:DefaultAxes.CleanSeparator}" />
-                    </lvc:CartesianChart.AxisX>
-                    <lvc:CartesianChart.AxisY>
-                        <lvc:Axis LabelFormatter="{Binding Formatter}" />
-                    </lvc:CartesianChart.AxisY>
-                </lvc:CartesianChart>
+                <TextBlock Name="title1"
+          Text="Your Content" Height="22" Width="423" FontSize="16" FontWeight="Bold" />
+                <Image x:Name="image1" HorizontalAlignment="Stretch" Height="209" Stretch="UniformToFill" Width="428" />
+
+
             </StackPanel>
         </materialDesign:Card>
 
+        <materialDesign:Card Margin="525,538,293,17" UniformCornerRadius="20" Padding="10">
+            <Grid Margin="-18,-19,-21,-21">
+                <ComboBox Margin="20,0,99,0" Name="wa"
+  materialDesign:HintAssist.Hint="账单类型" BorderBrush="#FFCC8383" Foreground="#FFCC8383" Height="35" SelectionChanged="wora_SelectionChanged">
+                    <ComboBoxItem>
+                        微信账单
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        支付宝账单
+                    </ComboBoxItem>
+                </ComboBox>
+
+                <Button Margin="149,12,27,11" Cursor="Hand" Click="Button_Click_2" Background="#FFCC8383" BorderBrush="#FFF4F2F9" >
+                    <materialDesign:PackIcon Kind="ArrowRightCircleOutline" />
+                </Button>
+            </Grid>
+        </materialDesign:Card>
         <Grid Margin="508,285,278,104">
             <Border Background="#FFACE659" Margin="50 20 50 20">
                 <Border.Effect>
@@ -163,37 +200,54 @@
 
             <Border CornerRadius="10" Margin="10 0 10 0" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="#FFACE659">
                 <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
+                    <TextBlock Text="今天快来记账吧！" Margin="10,10,10,185" FontWeight="SemiBold" Foreground="White" FontSize="14" />
+                    <Button 
+    Style="{StaticResource MaterialDesignOutlinedButton}"
+    ToolTip="MaterialDesignOutlinedButton" Margin="146,47,24,142" BorderBrush="White" Foreground="White" FontSize="12" Click="Button_Click_3">
+                        Record
+                    </Button>
+                    <DatePicker Margin="10,47,133,0" Name="adddate"
+  materialDesign:HintAssist.Hint="Pick Date"
+  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" VerticalAlignment="Top" Foreground="#FF6D7912" BorderBrush="White" Background="{x:Null}" />
+                    <ComboBox Margin="7,94,133,0" Name="addoi"
+  materialDesign:HintAssist.Hint="收支类型" VerticalAlignment="Top" BorderBrush="White" Foreground="#FF6D7912" >
+                        <ComboBoxItem>支出</ComboBoxItem>
+                        <ComboBoxItem>收入</ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox Margin="132,94,10,0" Name="addtype"
+  materialDesign:HintAssist.Hint="用途类型" VerticalAlignment="Top" Foreground="#FF6D7912" BorderBrush="White" >
+                        <ComboBoxItem>
+                            衣
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            食
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            住
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            行
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            其他
+                        </ComboBoxItem>
+                    </ComboBox>
+                    <TextBox Margin="132,127,10,0" Name="addmoney"
+  materialDesign:HintAssist.Hint="金额"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Top" BorderBrush="White" Foreground="#FF6D7912" />
+                    <TextBox Margin="10,127,133,0" Name="addway"
+  materialDesign:HintAssist.Hint="途径类型"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Top" Foreground="#FF6D7912" BorderBrush="White" />
 
-                    <Border BorderThickness="1" Height="1" BorderBrush="#EBEBEB" VerticalAlignment="Center" Grid.RowSpan="2"/>
-
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="4*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Border Background="#ffffff" Opacity="0.2" Width="35" Height="35" CornerRadius="35"/>
-                        <TextBlock Text="&#xe69d;" FontFamily="Fonts/#iconfont" 
-                                                   FontSize="22" Foreground="White"
-                                                   VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
-                        <TextBlock Text="Total Messages" Grid.Column="1" Foreground="White" VerticalAlignment="Center"/>
-
-                    </Grid>
-
-                    <StackPanel Grid.Row="1" VerticalAlignment="Center" Margin="15 0 0 0">
-                        <TextBlock Text="Decemeber 05th's 16" FontSize="22" Foreground="White"/>
-                        <TextBlock Text="99+" Foreground="White"/>
-                    </StackPanel>
-
+                    <TextBox Margin="10,168,10,0" Name="addu"
+  materialDesign:HintAssist.Hint="用途"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Top" Foreground="#FF6D7912" BorderBrush="White" />
                 </Grid>
             </Border>
         </Grid>
-
-       
+        <Frame x:Name="h" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Page>

@@ -1,0 +1,97 @@
+﻿<Page x:Class="FFERP.feedback"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      xmlns:local="clr-namespace:FFERP"
+      mc:Ignorable="d" 
+      d:DesignHeight="610" d:DesignWidth="1050"
+      ShowsNavigationUI="False"
+      Title="feedback">
+
+    <Grid Background="WhiteSmoke">
+
+        <materialDesign:DrawerHost
+  HorizontalAlignment="Center"
+  VerticalAlignment="Center"
+  BorderThickness="2"
+  BorderBrush="{DynamicResource MaterialDesignDivider}" Height="610" Width="1050">
+            <materialDesign:DrawerHost.Style>
+                <Style
+      TargetType="materialDesign:DrawerHost"
+      BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}">
+                    <Style.Triggers>
+                        <DataTrigger
+          Binding="{Binding IsChecked, ElementName=BackgroundToggle}"
+          Value="True">
+                            <Setter
+            Property="OverlayBackground"
+            Value="{DynamicResource PrimaryHueMidBrush}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </materialDesign:DrawerHost.Style>
+
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <StackPanel
+      Margin="16">
+                    <Button
+        Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+        CommandParameter="{x:Static Dock.Left}"
+        Margin="4"
+        HorizontalAlignment="Center"
+        Style="{DynamicResource MaterialDesignFlatButton}" Cursor="Hand" FontWeight="Bold" FontSize="16" Click="Button_Click" >
+                        预算规划预设
+                    </Button>
+                    <Button
+        Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+        Margin="4"
+        HorizontalAlignment="Center"
+        Style="{DynamicResource MaterialDesignFlatButton}" Cursor="Hand" FontWeight="Bold" FontSize="16" Click="Button_Click_1" >
+                        预算规划推荐
+                    </Button>
+                    <Button
+        Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+        Margin="4"
+        HorizontalAlignment="Center"
+        Style="{DynamicResource MaterialDesignFlatButton}" Cursor="Hand" FontWeight="Bold" FontSize="16" Click="Button_Click_2">
+                        理财资讯行情
+                    </Button>
+                    <Button
+        Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+        Margin="4"
+        HorizontalAlignment="Center"
+        Style="{DynamicResource MaterialDesignFlatButton}" Cursor="Hand" FontWeight="Bold" FontSize="16" Click="Button_Click_3">
+                        用 户 反 馈
+                    </Button>
+                </StackPanel>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+            <Grid>
+                <Button
+        Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+        CommandParameter="{x:Static Dock.Left}"
+         HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="Hand" Height="76" Width="38" Margin="0,30,0,0">
+                    <materialDesign:PackIcon Kind="MenuRight" HorizontalAlignment="Center" Height="64" Width="32" VerticalAlignment="Center" VerticalContentAlignment="Top" />
+                </Button>
+
+
+                <Grid Margin="81,110,75,43" Background="White">
+                    <Button
+    Style="{StaticResource MaterialDesignRaisedLightButton}"
+    materialDesign:ButtonAssist.CornerRadius="20"
+    ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="14,-51,23,404" Height="100"/>
+
+                    <materialDesign:PackIcon Kind="CommentQuoteOutline" Height="62" Width="88" BorderBrush="White" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" FlowDirection="LeftToRight" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Margin="14,-32,0,0" />
+
+                    <TextBox Text="       用户反馈" HorizontalAlignment="Center" Margin="0,93,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="890" Height="402" Background="White" Foreground="#FFB39DDB" FontSize="22"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="107,-32,0,0" TextWrapping="Wrap" Text="用户反馈" VerticalAlignment="Top" Foreground="White" FontSize="48"/>
+                </Grid>
+
+            </Grid>
+        </materialDesign:DrawerHost>
+        <Frame x:Name="fb" NavigationUIVisibility="Hidden"></Frame>
+
+    </Grid>
+</Page>

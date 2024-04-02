@@ -17,26 +17,26 @@
                 <Image Source="image\signup.gif" Stretch="Fill" VerticalAlignment="Center" HorizontalAlignment="Left" Height="400" Width="300" Margin="50,0,0,0" Visibility="Visible" Opacity="30"/>
                 <materialDesign:PackIcon Kind="CurrencyUsd" Foreground="#FF673AB7" Height="66" Width="67" Margin="418,37,0,0"  />
                 <TextBox
-  materialDesign:HintAssist.Hint="Familyname" Name="fname"
+  materialDesign:HintAssist.Hint="Familyname" Name="fname" 
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-  VerticalAlignment="Top" Margin="451,126,48,0" Height="36" />
+  VerticalAlignment="Top" Margin="451,126,48,0" Height="36" TabIndex="1" />
                 <TextBox
   materialDesign:HintAssist.Hint="UserId" Name="username"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-  VerticalAlignment="Top" Margin="452,167,48,0" Height="33" />
+  VerticalAlignment="Top" Margin="453,216,47,0" Height="32" TabIndex="4" />
                 <PasswordBox
   x:Name="passwordbox1" 
   materialDesign:HintAssist.Hint="Password"
   materialDesign:HintAssist.Foreground="#FF673AB7"
   materialDesign:TextFieldAssist.UnderlineBrush="#FF673AB7"
-  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="452,211,47,156" Height="33" Cursor="Hand" />
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="452,257,47,110" Height="33" Cursor="Hand" TabIndex="4" />
 
                 <PasswordBox
   x:Name="passwordbox2"
   materialDesign:HintAssist.Hint="Password"
   materialDesign:HintAssist.Foreground="#FF673AB7"
   materialDesign:TextFieldAssist.UnderlineBrush="#FF673AB7"
-  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="452,257,47,110" Height="33" />
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="452,170,47,197" Height="33" TabIndex="2" />
 
 
                 <Button
@@ -51,9 +51,9 @@
 
 
                 <Label Content="SIGN UP" HorizontalAlignment="Left" Margin="481,45,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF673AB7" FontFamily="Rockwell Extra Bold" Height="58" Width="156" FontSize="30" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <materialDesign:PackIcon Kind="Key" Width="30" Height="30" Margin="412,214,0,0" Foreground="#FF673AB7" />
-                <materialDesign:PackIcon Kind="Key" Width="30" Height="30" Margin="412,260,0,0" Foreground="#FF673AB7" />
-                <materialDesign:PackIcon Kind="Account" Margin="409,167,0,0" Height="38" Width="36" Foreground="#FF673AB7" />
+                <materialDesign:PackIcon Kind="Key" Width="30" Height="30" Margin="412,263,0,0" Foreground="#FF673AB7" />
+                <materialDesign:PackIcon Kind="Key" Width="30" Height="30" Margin="412,176,0,0" Foreground="#FF673AB7" />
+                <materialDesign:PackIcon Kind="Account" Margin="409,217,0,0" Height="38" Width="36" Foreground="#FF673AB7" />
                 <materialDesign:PackIcon Kind="HomeVariant" Width="30" Height="30" Foreground="#FF673AB7" Margin="412,132,0,0"/>
                 <Button
     Style="{StaticResource MaterialDesignFlatButton}"

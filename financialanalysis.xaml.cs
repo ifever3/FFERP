@@ -28,9 +28,10 @@ namespace FFERP
         List<int> a = new List<int>();
         List<int> b = new List<int>();
 
-        ColumnSeries outcome = new ColumnSeries();
+        ColumnSeries outcome = new ColumnSeries { Title = "outcome" };      
         //新建一条温度的柱状图
-        ColumnSeries income = new ColumnSeries();
+        ColumnSeries income = new ColumnSeries { Title = "income" };
+
         public financialanalysis()
         {
             InitializeComponent();            
