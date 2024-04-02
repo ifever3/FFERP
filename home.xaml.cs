@@ -59,8 +59,8 @@ namespace FFERP
         {
             var bills = new List<wechatBill>();
             try
-            {             
-                string number=null;
+            {
+                string number = null;
                 var lines = File.ReadAllLines(filePath);
                 SqlConnection sqlconn = null;
                 sqlconn = new SqlConnection("server=LAPTOP-LJQH2OK2;uid=sa;pwd=123;database=FF ERP");
@@ -90,27 +90,43 @@ namespace FFERP
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlconn;
-
+           
                 for (int i = 0; i < bills.Count; i++)
                 {
-                    // 清除参数并设置新的参数值
-                    cmd.Parameters.Clear();
-                    cmd.CommandText = "insert into ie values (@Username, @Userfamily, @Date, @IC, @Money, @Way, @Other, @Tran)";
-                    cmd.Parameters.AddWithValue("@Username", acc.Username);
-                    cmd.Parameters.AddWithValue("@Userfamily", acc.Userfamily);
-                    cmd.Parameters.AddWithValue("@Date", bills[i].date);
-                    cmd.Parameters.AddWithValue("@IC", bills[i].ic);
-                    cmd.Parameters.AddWithValue("@Money", bills[i].money);
-                    cmd.Parameters.AddWithValue("@Way", bills[i].way);
-                    cmd.Parameters.AddWithValue("@Other", "其他");
-                    cmd.Parameters.AddWithValue("@Tran", bills[i].tran);
 
-                    // 执行插入操作
-                    int jg = cmd.ExecuteNonQuery();
-                
+                    // 检查数据库中是否已经存在相同的数据
+                    SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM ie WHERE 用户名=@Username AND 家庭=@Userfamily AND 日期 = @Date AND 收支类型 = @IC AND 金额 = @Money AND 途径类型 = @Way AND 用途类型=@Other AND 用途 = @Tran", sqlconn);
+                    checkCmd.Parameters.AddWithValue("@Username", acc.Username);
+                    checkCmd.Parameters.AddWithValue("@Userfamily", acc.Userfamily);
+                    checkCmd.Parameters.AddWithValue("@Date", bills[i].date);
+                    checkCmd.Parameters.AddWithValue("@IC", bills[i].ic);
+                    checkCmd.Parameters.AddWithValue("@Money", bills[i].money);
+                    checkCmd.Parameters.AddWithValue("@Way", bills[i].way);
+                    checkCmd.Parameters.AddWithValue("@Other", "其他");
+                    checkCmd.Parameters.AddWithValue("@Tran", bills[i].tran);
+
+                    int existingCount = (int)checkCmd.ExecuteScalar();
+
+                    if (existingCount == 0)
+                    {
+                        // 数据库中不存在相同数据，执行插入操作
+                        cmd.Parameters.Clear();
+                        cmd.CommandText = "INSERT INTO ie VALUES (@Username, @Userfamily, @Date, @IC, @Money, @Way, @Other, @Tran)";
+                        cmd.Parameters.AddWithValue("@Username", acc.Username);
+                        cmd.Parameters.AddWithValue("@Userfamily", acc.Userfamily);
+                        cmd.Parameters.AddWithValue("@Date", bills[i].date);
+                        cmd.Parameters.AddWithValue("@IC", bills[i].ic);
+                        cmd.Parameters.AddWithValue("@Money", bills[i].money);
+                        cmd.Parameters.AddWithValue("@Way", bills[i].way);
+                        cmd.Parameters.AddWithValue("@Other", "其他");
+                        cmd.Parameters.AddWithValue("@Tran", bills[i].tran);
+
+                        int jg = cmd.ExecuteNonQuery();
+                    }
                 }
-                sqlconn.Close();                      
+                    sqlconn.Close();
                 }
+            
             catch (Exception ex)
             {
                 // 处理异常
@@ -143,10 +159,10 @@ namespace FFERP
                     var values = line.Split(',');
 
                     string input = values[6];
-                    
+
                     decimal numberDecimal = decimal.Parse(input);
                     int numberInt = (int)Math.Round(numberDecimal);
-                   
+
 
                     var bill = new AlipayBill
                     {
@@ -158,26 +174,45 @@ namespace FFERP
                         // 映射其他字段...
                     };
                     bills.Add(bill);
-                }                
+                }
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlconn;
 
                 for (int i = 0; i < bills.Count; i++)
                 {
-                    cmd.Parameters.Clear();
-                    cmd.CommandText = "insert into ie values (@Username, @Userfamily, @Date, @IC, @Money, @Way, @Other, @Tran)";
-                    cmd.Parameters.AddWithValue("@Username", acc.Username);
-                    cmd.Parameters.AddWithValue("@Userfamily", acc.Userfamily);
-                    cmd.Parameters.AddWithValue("@Date", bills[i].date);
-                    cmd.Parameters.AddWithValue("@IC", bills[i].ic);
-                    cmd.Parameters.AddWithValue("@Money", bills[i].money);
-                    cmd.Parameters.AddWithValue("@Way", bills[i].way);
-                    cmd.Parameters.AddWithValue("@Other", "其他");
-                    cmd.Parameters.AddWithValue("@Tran", bills[i].tran);
 
-                    int jg = cmd.ExecuteNonQuery();
+                    // 检查数据库中是否已经存在相同的数据
+                    SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM ie WHERE 用户名=@Username AND 家庭=@Userfamily AND 日期 = @Date AND 收支类型 = @IC AND 金额 = @Money AND 途径类型 = @Way AND 用途类型=@Other AND 用途 = @Tran", sqlconn);
+                    checkCmd.Parameters.AddWithValue("@Username", acc.Username);
+                    checkCmd.Parameters.AddWithValue("@Userfamily", acc.Userfamily);
+                    checkCmd.Parameters.AddWithValue("@Date", bills[i].date);
+                    checkCmd.Parameters.AddWithValue("@IC", bills[i].ic);
+                    checkCmd.Parameters.AddWithValue("@Money", bills[i].money);
+                    checkCmd.Parameters.AddWithValue("@Way", bills[i].way);
+                    checkCmd.Parameters.AddWithValue("@Other", "其他");
+                    checkCmd.Parameters.AddWithValue("@Tran", bills[i].tran);
+
+                    int existingCount = (int)checkCmd.ExecuteScalar();
+
+                    if (existingCount == 0)
+                    {
+                        // 数据库中不存在相同数据，执行插入操作
+                        cmd.Parameters.Clear();
+                        cmd.CommandText = "INSERT INTO ie VALUES (@Username, @Userfamily, @Date, @IC, @Money, @Way, @Other, @Tran)";
+                        cmd.Parameters.AddWithValue("@Username", acc.Username);
+                        cmd.Parameters.AddWithValue("@Userfamily", acc.Userfamily);
+                        cmd.Parameters.AddWithValue("@Date", bills[i].date);
+                        cmd.Parameters.AddWithValue("@IC", bills[i].ic);
+                        cmd.Parameters.AddWithValue("@Money", bills[i].money);
+                        cmd.Parameters.AddWithValue("@Way", bills[i].way);
+                        cmd.Parameters.AddWithValue("@Other", "其他");
+                        cmd.Parameters.AddWithValue("@Tran", bills[i].tran);
+
+                        int jg = cmd.ExecuteNonQuery();
+                    }
                 }
-                sqlconn.Close();
+                    sqlconn.Close();
+                
             }
             catch (Exception ex)
             {
