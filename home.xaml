@@ -17,7 +17,7 @@
                 <Grid Height="160">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
-                        <ColumnDefinition Width="166.227" />
+                        <ColumnDefinition Width="148" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition />
@@ -26,35 +26,47 @@
                         <RowDefinition />
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <TextBlock Text="衣" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
-                    <TextBlock Text="食" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
-                    <TextBlock Text="住" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
-                    <TextBlock Text="行" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
-                    <TextBlock Text="其他" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" />
-                    <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                        <TextBlock Text="￥" FontWeight="SemiBold" Margin="5 0" />
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Height="16" Width="74">
+                        <TextBlock Text="衣" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" Height="16" Width="14" />
+                        <TextBlock Name="m1" Text="￥" FontWeight="SemiBold" Margin="5 0" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Height="16" Width="74">
+                        <TextBlock Text="食" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" Height="16" Width="14" />
+                        <TextBlock Name="m2" Text="￥" FontWeight="SemiBold" Margin="5 0" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Height="16" Width="74">
+                        <TextBlock Text="住" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" Height="16" Width="14" />
+                        <TextBlock Name="m3" Text="￥" FontWeight="SemiBold" Margin="5 0" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Height="16" Width="74">
+                        <TextBlock Text="行" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" Height="16" Width="14" />
+                        <TextBlock Name="m4" Text="￥" FontWeight="SemiBold" Margin="5 0" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Height="16" Width="70">
+                        <TextBlock Text="其他" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" Height="16" Width="26" />
+                        <TextBlock Name="m5" Text="￥" FontWeight="SemiBold" Margin="5 0" />
+                    </StackPanel>
+
+
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Height="16" Width="115">
                         <ProgressBar Name="bar1" Margin="5 0" Width="126" Height="14" Foreground="#FFFFFF13" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
-
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                        <TextBlock Text="￥" FontWeight="SemiBold" Margin="5 0" />
+
+                    <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Height="16" Width="113">
                         <ProgressBar Name="bar3" Margin="5 0" Width="126" Height="14" Foreground="#FFFFFF13" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
-
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                        <TextBlock Text="￥" FontWeight="SemiBold" Margin="5 0" />
+                    <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Width="106" Height="16">
                         <ProgressBar x:Name="bar2" Width="126" Height="14" Foreground="#FF269220" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
-
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                        <TextBlock Text="￥" FontWeight="SemiBold" Margin="5 0" />
+                    <StackPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Height="16" Width="113">
                         <ProgressBar Name="bar4" Margin="5 0" Width="126" Height="14" Foreground="#FF269220" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
-
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                        <TextBlock Text="￥" FontWeight="SemiBold" Margin="5 0" />
+                    <StackPanel Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Height="16" Width="113">
                         <ProgressBar Name="bar5" Margin="5 0" Width="127" Height="14" Foreground="#FFFFFF13" Background="#FFE8E8E8" BorderBrush="#FFF3F349" Value="78" />
-
                     </StackPanel>
                 </Grid>
             </StackPanel>
@@ -177,7 +189,7 @@
         <materialDesign:Card Margin="525,538,293,17" UniformCornerRadius="20" Padding="10">
             <Grid Margin="-18,-19,-21,-21">
                 <ComboBox Margin="20,0,99,0" Name="wa"
-  materialDesign:HintAssist.Hint="账单类型" BorderBrush="#FFCC8383" Foreground="#FFCC8383" Height="35" SelectionChanged="wora_SelectionChanged">
+  materialDesign:HintAssist.Hint="导入账单类型" BorderBrush="#FFCC8383" Foreground="#FFCC8383" Height="35" SelectionChanged="wora_SelectionChanged">
                     <ComboBoxItem>
                         微信账单
                     </ComboBoxItem>

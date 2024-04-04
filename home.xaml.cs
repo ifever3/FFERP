@@ -246,6 +246,11 @@ namespace FFERP
                 bar3.Value = 100 * z / (y + s + z + x + q+1);
                 bar4.Value = 100 * x / (y + s + z + x + q+1);
                 bar5.Value = 100 * q / (y + s + z + x + q+1);
+                m1.Text = "￥" + y;
+                m2.Text = "￥" + s;
+                m3.Text = "￥" + z;
+                m4.Text = "￥" + x;
+                m5.Text = "￥" + q;
             }
             sdr.Close();
             sqlconn.Close();

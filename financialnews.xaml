@@ -88,7 +88,7 @@
         Margin="24,8,24,16">
                                     <TextBlock Name="title1"
           Text="Your Content" />
-                                    <Image x:Name="image1" HorizontalAlignment="Stretch" Height="100" Stretch="UniformToFill" />
+                                    <Image x:Name="image1" HorizontalAlignment="Stretch" Height="100" Stretch="Fill" />
 
                                     <TextBlock Name="text1"
           Opacity=".68"
@@ -110,7 +110,7 @@
         Margin="24,8,24,16">
                                     <TextBlock Name="title2"
           Text="Your Content" />
-                                    <Image x:Name="image2" HorizontalAlignment="Stretch" Height="100" Stretch="UniformToFill" />
+                                    <Image x:Name="image2" HorizontalAlignment="Stretch" Height="100" Stretch="Fill" />
                                     <TextBlock Name="text2"
           Opacity=".68"
           Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -131,7 +131,7 @@
         Margin="24,8,24,16">
                                     <TextBlock Name="title3"
           Text="Your Content" />
-                                    <Image x:Name="image3" HorizontalAlignment="Stretch" Height="100" Stretch="UniformToFill" />
+                                    <Image x:Name="image3" HorizontalAlignment="Stretch" Height="100" Stretch="Fill" />
                                     <TextBlock  Name="text3"
           Opacity=".68"
           Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -152,7 +152,7 @@
         Margin="24,8,24,16">
                                     <TextBlock Name="title4"
           Text="Your Content" />
-                                    <Image x:Name="image4" HorizontalAlignment="Stretch" Height="100" Stretch="UniformToFill" />
+                                    <Image x:Name="image4" HorizontalAlignment="Stretch" Height="100" Stretch="Fill" />
                                     <TextBlock  Name="text4"
           Opacity=".68"
           Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -173,7 +173,7 @@
         Margin="24,8,24,16">
                                     <TextBlock Name="title5"
           Text="Your Content" />
-                                    <Image x:Name="image5" HorizontalAlignment="Stretch" Height="100" Stretch="UniformToFill" />
+                                    <Image x:Name="image5" HorizontalAlignment="Stretch" Height="100" Stretch="Fill" />
                                     <TextBlock  Name="text5"
           Opacity=".68"
           Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

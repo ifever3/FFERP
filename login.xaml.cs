@@ -13,6 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using System.Net;
+using System.Text.Json.Nodes;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.ServiceModel;
+
 
 namespace FFERP
 {
@@ -83,5 +90,29 @@ namespace FFERP
             sqlconn.Close();
             
         }
-    }
+
+        private void accept_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void DialogHost_DialogClosing(object sender, MaterialDesignThemes.Wpf.DialogClosingEventArgs eventArgs)
+        {
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+	
+
+
+
+	}
 }
