@@ -28,6 +28,7 @@ namespace FFERP
         public budgetset()
         {
             InitializeComponent();
+            mupdate();
             dataset();
             DataContext = this;
             chartdata();
@@ -53,8 +54,11 @@ namespace FFERP
             sdr.Close();
             sqlconn.Close();          
         }
+
+      static int s = 0, s1 = 0, c = 0, f = 0, l = 0, t = 0, o = 0, c1 = 0, f1 = 0, l1 = 0, t1 = 0, o1 = 0;
         private void dataset()
         {
+           
             SqlConnection sqlconn = null;
             sqlconn = new SqlConnection("server=LAPTOP-LJQH2OK2;uid=sa;pwd=123;database=FF ERP");
             sqlconn.Open();
@@ -70,6 +74,12 @@ namespace FFERP
                 tran.Text = reader.GetInt32(3).ToString();
                 other.Text = reader.GetInt32(4).ToString();
                 sum.Text = String.Format("{0:C0}", reader.GetInt32(5));
+                s= reader.GetInt32(5);
+                c= reader.GetInt32(0);
+                f= reader.GetInt32(1);
+                l= reader.GetInt32(2);
+                t= reader.GetInt32(3);
+                o= reader.GetInt32(4);
             }
             reader.Close();
 
@@ -98,6 +108,12 @@ namespace FFERP
                 tran1.Text = reader1.GetInt32(3).ToString();
                 other1.Text = reader1.GetInt32(4).ToString();
                 sum1.Text = String.Format("{0:C0}", reader1.GetInt32(5));
+                s1= reader1.GetInt32(5);
+                c1= reader1.GetInt32(0);
+                f1= reader1.GetInt32(1);
+                l1 = reader1.GetInt32(2);
+                t1 = reader1.GetInt32(3);
+                o1 = reader1.GetInt32(4);
 
                 cloth3.Values = new ChartValues<int> { reader1.GetInt32(0) };
                 tran3.Values = new ChartValues<int> { reader1.GetInt32(1) };
@@ -113,16 +129,60 @@ namespace FFERP
                         WHEN 用途类型 = '住' THEN 住金额
                         WHEN 用途类型 = '行' THEN 行金额
                         WHEN 用途类型 = '其他' THEN 其他金额
-                        END AS '该预算总金额' FROM ie, budget WHERE ie.用户名 = budget.用户名 and ie.用户名='{0}'", acc.Username);
+                        END AS '该预算总金额' FROM ie, budget WHERE ie.用户名 = budget.用户名 and 收支类型='支出' and ie.用户名='{0}'", acc.Username);
             SqlDataAdapter sda=new SqlDataAdapter(sql2,sqlconn);
            DataTable dt = new DataTable();
             sda.Fill(dt);
             data1.ItemsSource = dt.DefaultView;
             sqlconn.Close();
 
-           // chartdata();
+           if(s>s1)
+            {
+                sum1.Foreground = Brushes.Green;
+            }
+           else
+            {
+                sum1.Foreground = Brushes.Red;
+            }
 
         }
+
+        private void mupdate()
+        {
+            string date = DateTime.Now.ToString("dd");
+            if(date=="01")
+            {
+                SqlConnection sqlconn = new SqlConnection("server=LAPTOP-LJQH2OK2;uid=sa;pwd=123;database=FF ERP");
+                sqlconn.Open();             
+                switch (c1)
+                {
+                    case 1 when c1 > c:
+                        cloth.Text = (c1+c1*0.1).ToString();
+                        break;
+                    case 2 when f1 > f:
+                       food.Text = (f1+f1*0.1).ToString();
+                        break;
+                    case 3 when l1 > l:
+                       live.Text = (l1+l1*0.1).ToString();
+                        break;
+                    case 4 when t1 > t:
+                      tran.Text = (t1+t1*0.1).ToString();
+                        break;
+                    case 5 when o1 > o:
+                        other.Text = (o1+o1*0.1).ToString();
+                        break;
+                    default:
+                        // 其他情况的操作
+                        break;
+                }
+                string sql = string.Format("update budget set 衣金额='{0}',食金额='{1}',住金额='{2}',行金额='{3}',其他金额='{4}' where 用户名='{5}'",
+                     Convert.ToInt32(cloth.Text.Trim()), Convert.ToInt32(food.Text.Trim()), Convert.ToInt32(live.Text.Trim()), Convert.ToInt32(tran.Text.Trim()), Convert.ToInt32(other.Text.Trim()), acc.Username);
+                SqlCommand cmd = new SqlCommand(sql, sqlconn);
+                int jg = cmd.ExecuteNonQuery();
+                sqlconn.Close();
+            }
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             budgetset p=new budgetset();

@@ -123,10 +123,16 @@
                     <Border  Grid.Row="0" Grid.RowSpan="4" CornerRadius="5" Background="White" />
                     <Border Grid.Row="0" Grid.RowSpan="3" Background="#FFFDBD0E" ></Border>
 
-                    <lvc:CartesianChart  Grid.Row="2" Margin="10, 0, 10, 20"  Hoverable="False" DataTooltip="{x:Null}">
+                    <lvc:CartesianChart Name="c" Grid.Row="2" Margin="10, 0, 10, 20"  Hoverable="False" DataTooltip="{x:Null}">
                         <lvc:CartesianChart.Series>
-                            <lvc:LineSeries Stroke="White" Values="5,9,8,6,1,5,7,3,6,3"/>
+                            <lvc:LineSeries Stroke="White" />
                         </lvc:CartesianChart.Series>
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis MinValue="1" MaxValue="12" Title="月份"/>
+                        </lvc:CartesianChart.AxisX>
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis  MaxValue="100000" Title="金额"/>
+                        </lvc:CartesianChart.AxisY>
                     </lvc:CartesianChart>
                 </Grid>
 
@@ -139,7 +145,7 @@
                     <TextBlock  Text="收入情况" VerticalAlignment="Bottom" Foreground="Black"  FontWeight="Light"  FontSize="16"/>
                     <Border Grid.Row="1" BorderThickness="0 0 0 1" Margin="0 0 20 0" VerticalAlignment="Bottom" BorderBrush="#E3E3E3"/>
                     <TextBlock Grid.Row="1" Text="Get More Data" Foreground="#848484" FontWeight="Light" VerticalAlignment="Center" FontSize="12"/>
-                    <TextBlock Grid.Row="2" Text="campaign sent 2 days ago" Foreground="#848484"  FontWeight="Light" VerticalAlignment="Center" FontSize="12"/>
+                    <TextBlock Grid.Row="2" Text="Income from this year" Foreground="#848484"  FontWeight="Light" VerticalAlignment="Center" FontSize="12"/>
                 </Grid>
             </Grid>
         </Border>

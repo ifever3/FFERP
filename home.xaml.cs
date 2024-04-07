@@ -25,6 +25,9 @@ using CsvHelper;
 using OfficeOpenXml;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Collections.ObjectModel;
+using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace FFERP
 {
@@ -43,7 +46,58 @@ namespace FFERP
             LoadNews();
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             recommendload();
+            carset();
         }
+
+        private void carset()
+        {
+            SqlConnection sqlconn = new SqlConnection("server=LAPTOP-LJQH2OK2;uid=sa;pwd=123;database=FF ERP");
+            sqlconn.Open();
+
+            SeriesCollection series = new SeriesCollection() { };
+            c.Series = series;
+
+            string y = DateTime.Now.Date.ToString("yyyy");
+            string[] m = new string[] { y + "/01", y + "/02", y + "/03", y + "/04", y + "/05", y + "/06", y + "/07", y + "/08", y + "/09", y + "/10", y + "/11", y + "/12" };
+            string sql = string.Format(@"select 
+SUM(CASE WHEN 用户名 = '{0}'  AND 收支类型 = '收入'and 日期 like '%{1}%' THEN 金额 ELSE 0 END) AS jan,
+SUM(CASE WHEN 用户名 = '{2}'  AND 收支类型 = '收入'and 日期 like '%{3}%' THEN 金额 ELSE 0 END) AS feb,
+SUM(CASE WHEN 用户名 = '{4}'  AND 收支类型 = '收入'and 日期 like '%{5}%' THEN 金额 ELSE 0 END) AS mar,
+SUM(CASE WHEN 用户名 = '{6}'  AND 收支类型 = '收入'and 日期 like '%{7}%' THEN 金额 ELSE 0 END) AS apr,
+SUM(CASE WHEN 用户名 = '{8}'  AND 收支类型 = '收入'and 日期 like '%{9}%' THEN 金额 ELSE 0 END) AS may,
+SUM(CASE WHEN 用户名 = '{10}'  AND 收支类型 = '收入'and 日期 like '%{11}%' THEN 金额 ELSE 0 END) AS jun,
+SUM(CASE WHEN 用户名 = '{12}'  AND 收支类型 = '收入'and 日期 like '%{13}%' THEN 金额 ELSE 0 END) AS jul,
+SUM(CASE WHEN 用户名 = '{14}'  AND 收支类型 = '收入'and 日期 like '%{15}%' THEN 金额 ELSE 0 END) AS aug,
+SUM(CASE WHEN 用户名 = '{16}'  AND 收支类型 = '收入'and 日期 like '%{17}%' THEN 金额 ELSE 0 END) AS sep,
+SUM(CASE WHEN 用户名 = '{18}'  AND 收支类型 = '收入'and 日期 like '%{19}%' THEN 金额 ELSE 0 END) AS oct,
+SUM(CASE WHEN 用户名 = '{20}'  AND 收支类型 = '收入'and 日期 like '%{21}%' THEN 金额 ELSE 0 END) AS nov,
+SUM(CASE WHEN 用户名 = '{22}'  AND 收支类型 = '收入'and 日期 like '%{23}%' THEN 金额 ELSE 0 END) AS dece
+from ie", acc.Username, m[0], acc.Username, m[1], acc.Username, m[2], acc.Username, m[3], acc.Username, m[4], acc.Username, m[5], acc.Username, m[6], acc.Username, m[7], acc.Username, m[8], acc.Username, m[9], acc.Username, m[10], acc.Username, m[11]);
+            SqlCommand cmd = new SqlCommand(sql, sqlconn);
+            SqlDataReader sdr = cmd.ExecuteReader();
+            if (sdr.Read())
+            {
+                var chartValues = new ChartValues<double> { sdr.GetInt32(0), sdr.GetInt32(1), sdr.GetInt32(2), sdr.GetInt32(3), sdr.GetInt32(4),
+                    sdr.GetInt32(5),sdr.GetInt32(6),sdr.GetInt32(7),sdr.GetInt32(8),sdr.GetInt32(9),sdr.GetInt32(10),sdr.GetInt32(11)};
+                chartValues.Insert(0, sdr.GetInt32(0));
+
+                series.Add(new LineSeries
+                {
+                    Values = chartValues,
+                    /*Values = new ChartValues<double> { sdr.GetInt32(0), sdr.GetInt32(1), sdr.GetInt32(2), sdr.GetInt32(3), sdr.GetInt32(4),
+                    sdr.GetInt32(5),sdr.GetInt32(6),sdr.GetInt32(7),sdr.GetInt32(8),sdr.GetInt32(9),sdr.GetInt32(10),sdr.GetInt32(11)},*/
+                    Stroke = System.Windows.Media.Brushes.White,
+                    DataLabels = true,
+                    Foreground = System.Windows.Media.Brushes.White
+                });
+
+            }
+            sdr.Close();
+
+            sqlconn.Close();
+        }
+
+
         public class wechatBill
         {
             public string date { get; set; }

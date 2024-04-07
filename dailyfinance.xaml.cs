@@ -35,19 +35,19 @@ namespace FFERP
             sqlconn.Open();
             //string sql = string.Format("select * from ie where 用户名='{0}' ", acc.Username);
             string sql = null;
-            if (datepicker.Text.ToString() == "" && usernamebox.Text.ToString() != "")
+            if (datepicker.Text.ToString() == "" && waybox.Text.ToString() != "")//10
             {
-                sql = string.Format("select * from ie where  用户名='{0}'", usernamebox.Text.ToString());
+                sql = string.Format("select * from ie where  用户名='{0}' and 用途 like '%{1}%'",acc.Username, waybox.Text.ToString());
             }
-            if (usernamebox.Text.ToString() != "" && datepicker.Text.ToString() != "")
+            if (waybox.Text.ToString() != "" && datepicker.Text.ToString() != "")//11
             {
-                sql = string.Format("select * from ie where  日期='{0}'and 用户名='{1}'", Convert.ToDateTime(datepicker.Text).ToString("yyyy/MM/dd"), acc.Username);
+                sql = string.Format("select * from ie where  日期='{0}'and 用户名='{1}' and 用途 like '%{2}%'", Convert.ToDateTime(datepicker.Text).ToString("yyyy/MM/dd"), acc.Username, waybox.Text.ToString());
             }
-            if (usernamebox.Text.ToString() == "" && datepicker.Text.ToString() != "")
+            if (waybox.Text.ToString() == "" && datepicker.Text.ToString() != "")//01
             {
                 sql = string.Format("select * from ie where 用户名='{0}'and 日期='{1}'", acc.Username, Convert.ToDateTime(datepicker.Text).ToString("yyyy/MM/dd"));//构造一个SQL语句字符串   
             }
-            if (datepicker.Text.ToString() == "" && usernamebox.Text.ToString() == "")
+            if (datepicker.Text.ToString() == "" && waybox.Text.ToString() == "")//00
             {
                 sql = string.Format("select * from ie where 用户名='{0}'", acc.Username);
             }
@@ -76,7 +76,8 @@ namespace FFERP
             }
             data1.ItemsSource = ds.DefaultView; // 填充到系统的视图中
             
-            sqlconn.Close();          
+            sqlconn.Close();
+            add.Visibility = Visibility.Visible;
         }
         private void dataset1()
         {
@@ -89,19 +90,19 @@ namespace FFERP
             SqlConnection sqlconn = new SqlConnection("server=LAPTOP-LJQH2OK2;uid=sa;pwd=123;database=FF ERP");
             sqlconn.Open();
             string sql = null;
-            if (datepicker.Text.ToString() == "" && usernamebox.Text.ToString() != "")
+            if (datepicker.Text.ToString() == "" && waybox.Text.ToString() != "")//10
             {
-                sql = string.Format("select * from ie where  用户名='{0}'", usernamebox.Text.ToString());
+                sql = string.Format("select * from ie where  家庭='{0}'  and 用途 like '%{1}%'",acc.Userfamily, waybox.Text.ToString());
             }
-            if (usernamebox.Text.ToString() != "" && datepicker.Text.ToString() != "")
+            if (waybox.Text.ToString() != "" && datepicker.Text.ToString() != "")//11
             {
-                sql = string.Format("select * from ie where  日期='{0}'and 用户名='{1}'", Convert.ToDateTime(datepicker.Text).ToString("yyyy/MM/dd"), acc.Username);
+                sql = string.Format("select * from ie where  日期='{0}'and 家庭='{1}' and 用途 like '%{2}%'", Convert.ToDateTime(datepicker.Text).ToString("yyyy/MM/dd"), acc.Userfamily,waybox.Text.ToString());
             }
-            if (usernamebox.Text.ToString() == "" && datepicker.Text.ToString() != "")
+            if (waybox.Text.ToString() == "" && datepicker.Text.ToString() != "")//01
             {
                 sql = string.Format("select * from ie where 家庭='{0}'and 日期='{1}'", acc.Userfamily, Convert.ToDateTime(datepicker.Text).ToString("yyyy/MM/dd"));//构造一个SQL语句字符串   
             }
-            if (datepicker.Text.ToString() == "" && usernamebox.Text.ToString() == "")
+            if (datepicker.Text.ToString() == "" && waybox.Text.ToString() == "")//00
             {
                 sql = string.Format("select * from ie where 家庭='{0}'", acc.Userfamily);
             }

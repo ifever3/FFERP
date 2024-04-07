@@ -186,7 +186,7 @@
 
                             <DatePicker Name="datepicker" materialDesign:HintAssist.Hint="日期" HorizontalAlignment="Left" Margin="256,33,0,0" VerticalAlignment="Top" Height="36" Width="154"/>
                         <TextBox
-  materialDesign:HintAssist.Hint="Name" Name="usernamebox"
+  materialDesign:HintAssist.Hint="用途" Name="waybox"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Top" Margin="63,33,665,0" />
 

@@ -17,6 +17,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using stockService;
 using System.ServiceModel;
+using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace FFERP
 {
@@ -166,9 +168,8 @@ namespace FFERP
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-    
 
-private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             budgetset p = new budgetset();
             news.Content = p;

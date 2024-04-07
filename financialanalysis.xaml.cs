@@ -12,11 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using LiveCharts;
-using LiveCharts.Wpf;
 using System.Data.SqlClient;
 using System.Data;
 using System.Collections.ObjectModel;
+using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace FFERP
 {
@@ -43,7 +43,127 @@ namespace FFERP
             cartesianchart();
         }
 
-        
+        private void Chart_OnDataClick(object sender, ChartPoint chartpoint)
+        {
+            var chart = (LiveCharts.Wpf.PieChart)chartpoint.ChartView;
+
+            //clear selected slice.
+            foreach (PieSeries series in chart.Series)
+                series.PushOut = 0;
+
+            var selectedSeries = (PieSeries)chartpoint.SeriesView;
+            selectedSeries.PushOut = 8;         
+            pa.Text = selectedSeries.Title + "排行榜";
+
+            if (uof.IsChecked is false)//个人
+            {
+                if (type.IsChecked == false)
+                {
+                    pchange1(selectedSeries.Title.ToString());
+                }
+                if (type.IsChecked == true)
+                {
+                    pchange3(selectedSeries.Title.ToString());
+                }
+            }
+            if (uof.IsChecked is true)//家庭
+            {
+                if (type.IsChecked == false)
+                {
+                    pchange2(selectedSeries.Title.ToString());
+                }
+                if (type.IsChecked == true)
+                {
+                    pchange4(selectedSeries.Title.ToString());
+                }
+            }
+           
+        }
+
+        private void pchange1(string p)
+        {
+                SqlConnection sqlconn = new SqlConnection("server=LAPTOP-LJQH2OK2;uid=sa;pwd=123;database=FF ERP");
+                sqlconn.Open();
+                string sql = string.Format("SELECT ROW_NUMBER() OVER(ORDER BY 金额 DESC) AS 排行, * FROM ieview where 用户名='{0}'and 日期 like '%{1}%' and 收支类型='支出' and 用途类型='{2}'", acc.Username, tb_calendar.Text,p);
+                SqlDataAdapter sda = new SqlDataAdapter(sql, sqlconn);
+                DataTable ds = new DataTable();
+                sda.Fill(ds);//填充表
+                data1.ItemsSource = ds.DefaultView;//填充到系统的视图中
+
+                string sql1 = string.Format("select count(*) as count,SUM(金额) as msum from ie where 用户名='{0}' and 收支类型='支出' and 日期 like '%{1}%' and 用途类型='{2}'", acc.Username, tb_calendar.Text,p);
+                SqlCommand cmd1 = new SqlCommand(sql1, sqlconn);
+                SqlDataReader sdr1 = cmd1.ExecuteReader();
+                if (sdr1.Read())
+                {
+                    count.Text = sdr1["count"].ToString();
+                    num.Text = sdr1["msum"].ToString();
+                }
+                sdr1.Close();
+                sqlconn.Close();
+        }
+        private void pchange2(string p)//家庭支出
+        {
+            SqlConnection sqlconn = new SqlConnection("server=LAPTOP-LJQH2OK2;uid=sa;pwd=123;database=FF ERP");
+            sqlconn.Open();
+            string sql = string.Format("SELECT ROW_NUMBER() OVER(ORDER BY 金额 DESC) AS 排行, * FROM ieview where 家庭='{0}'and 日期 like '%{1}%' and 收支类型='支出' and 用途类型='{2}'", acc.Userfamily, tb_calendar.Text,p);
+            SqlDataAdapter sda = new SqlDataAdapter(sql, sqlconn);
+            DataTable ds = new DataTable();
+            sda.Fill(ds);//填充表
+            data1.ItemsSource = ds.DefaultView;//填充到系统的视图中
+
+            string sql1 = string.Format("select count(*) as count,SUM(金额) as msum from ie where 家庭='{0}' and 收支类型='支出' and 日期 like '%{1}%' and 用途类型='{2}'", acc.Userfamily, tb_calendar.Text,p);
+            SqlCommand cmd1 = new SqlCommand(sql1, sqlconn);
+            SqlDataReader sdr1 = cmd1.ExecuteReader();
+            if (sdr1.Read())
+            {
+                count.Text = sdr1["count"].ToString();
+                num.Text = sdr1["msum"].ToString();
+            }
+            sdr1.Close();
+            sqlconn.Close();
+        }
+        private void pchange3(string p)//个人收入
+        {
+            SqlConnection sqlconn = new SqlConnection("server=LAPTOP-LJQH2OK2;uid=sa;pwd=123;database=FF ERP");
+            sqlconn.Open();
+            string sql = string.Format("SELECT ROW_NUMBER() OVER(ORDER BY 金额 DESC) AS 排行, * FROM ieview where 用户名='{0}'and 日期 like '%{1}%' and 收支类型='收入' and 用途类型='{2}'", acc.Username, tb_calendar.Text,p);
+            SqlDataAdapter sda = new SqlDataAdapter(sql, sqlconn);
+            DataTable ds = new DataTable();
+            sda.Fill(ds);//填充表
+            data1.ItemsSource = ds.DefaultView;//填充到系统的视图中
+
+            string sql1 = string.Format("select count(*) as count,SUM(金额) as msum from ie where 用户名='{0}' and 收支类型='收入' and 日期 like '%{1}%' and 用途类型='{2}'", acc.Username, tb_calendar.Text,p);
+            SqlCommand cmd1 = new SqlCommand(sql1, sqlconn);
+            SqlDataReader sdr1 = cmd1.ExecuteReader();
+            if (sdr1.Read())
+            {
+                count.Text = sdr1["count"].ToString();
+                num.Text = sdr1["msum"].ToString();
+            }
+            sdr1.Close();
+            sqlconn.Close();
+        }
+        private void pchange4(string p)//家庭收入
+        {
+            SqlConnection sqlconn = new SqlConnection("server=LAPTOP-LJQH2OK2;uid=sa;pwd=123;database=FF ERP");
+            sqlconn.Open();
+            string sql = string.Format("SELECT ROW_NUMBER() OVER(ORDER BY 金额 DESC) AS 排行, * FROM ieview where 家庭='{0}'and 日期 like '%{1}%' and 收支类型='收入' and 用途类型='{2}'", acc.Userfamily, tb_calendar.Text,p);
+            SqlDataAdapter sda = new SqlDataAdapter(sql, sqlconn);
+            DataTable ds = new DataTable();
+            sda.Fill(ds);//填充表
+            data1.ItemsSource = ds.DefaultView;//填充到系统的视图中
+
+            string sql1 = string.Format("select count(*) as count,SUM(金额) as msum from ie where 家庭='{0}' and 收支类型='收入' and 日期 like '%{1}%'", acc.Userfamily, tb_calendar.Text,p);
+            SqlCommand cmd1 = new SqlCommand(sql1, sqlconn);
+            SqlDataReader sdr1 = cmd1.ExecuteReader();
+            if (sdr1.Read())
+            {
+                count.Text = sdr1["count"].ToString();
+                num.Text = sdr1["msum"].ToString();
+            }
+            sdr1.Close();
+            sqlconn.Close();
+        }
         public void cartesianchart()
         {
             
@@ -472,6 +592,7 @@ namespace FFERP
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
+            pa.Text = "排行榜";
             if (uof.IsChecked is false )//个人
             {
                 if(type.IsChecked == false)

@@ -117,7 +117,7 @@
                 <materialDesign:Card   Margin="691,82,56,249">
                     <Grid >
                         <TextBlock HorizontalAlignment="Left" Margin="33,10,0,0" TextWrapping="Wrap" Text="类型统计" VerticalAlignment="Top" FontFamily="Adobe Gothic Std B" FontSize="14" Foreground="#FFA04747"/>
-                        <lvc:PieChart Name="pietype" LegendLocation="Bottom" Hoverable="False" 
+                        <lvc:PieChart Name="pietype" LegendLocation="Bottom" Hoverable="False"  DataClick="Chart_OnDataClick"
                           DataTooltip="{x:Null}" Margin="10,43,10,10" >
                             <lvc:PieChart.Series>
                                 <lvc:PieSeries Name="cloth"  Title="衣" DataLabels="True" LabelPoint="{Binding PointLabel}" Values="10"/>

@@ -22,7 +22,11 @@
       找回密码
                     </TextBlock>
 
-                    <TextBox Margin="0 8 0 0" Name="addbank"
+                    <TextBox Margin="0 8 0 0" Name="u"
+  materialDesign:HintAssist.Hint="输入用户名"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" />
+                    <TextBox Margin="0 8 0 0" Name="phonenum"
   materialDesign:HintAssist.Hint="输入手机号"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Center" />
@@ -36,7 +40,7 @@
     Content="发送验证码"
      Cursor="Hand" Click="Button_Click_2" />
 
-                    <TextBox Margin="0 8 0 0" Name="addnum"
+                    <TextBox Margin="0 8 0 0" Name="textnum"
   materialDesign:HintAssist.Hint="输入验证码"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Center" />

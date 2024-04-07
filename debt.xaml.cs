@@ -76,6 +76,7 @@ namespace FFERP
             }
             data1.ItemsSource = ds.DefaultView;//填充到系统的视图中
             sqlconn.Close();
+            add.Visibility = Visibility.Visible;
         }
         private void dataset1()
         {
